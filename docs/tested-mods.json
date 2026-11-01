@@ -1,0 +1,117 @@
+{
+  "installed": {
+    "8oi3bsk5": {
+      "version_id": "IY93YaEe",
+      "version": "2.6.2",
+      "filename": "Terralith_1.21.1_v2.6.2_Neoforge.jar",
+      "url": "https://cdn.modrinth.com/data/8oi3bsk5/versions/IY93YaEe/Terralith_1.21.1_v2.6.2_Neoforge.jar",
+      "sha512": "35298f1682567f63dc16658b04cee5498b30819f1c05f9712b4480d7f5eb17059db3b13ab14f81a05fe257149d11ced2cce2030d3727c1747edd8657c53e2a85"
+    },
+    "XaDC71GB": {
+      "version_id": "cZu4cHY3",
+      "version": "1.8.1-neoforge-21.1",
+      "filename": "lithostitched-1.8.1-neoforge-21.1.jar",
+      "url": "https://cdn.modrinth.com/data/XaDC71GB/versions/cZu4cHY3/lithostitched-1.8.1-neoforge-21.1.jar",
+      "sha512": "6c02b8b269269d5aa84cb03bf824a1b5d52838e806c2fec8727eb4049925592dac9bb65c996858751fbb722f22ac59c4be09860e1f01e8f7b97c95be3faf7a57"
+    },
+    "iGEl6Crx": {
+      "version_id": "EAjbdreT",
+      "version": "3.0.14",
+      "filename": "biolith-neoforge-3.0.14.jar",
+      "url": "https://cdn.modrinth.com/data/iGEl6Crx/versions/EAjbdreT/biolith-neoforge-3.0.14.jar",
+      "sha512": "49d225425627eca3b52514752ad297d39c571853a72f4e539c6e233a1289126fbb50593b01af2a782369e1aca55654e225ae25d494c3885baf6ed9fe212887ad"
+    },
+    "HXF82T3G": {
+      "version_id": "BtZKRp69",
+      "version": "21.1.0.14",
+      "filename": "BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar",
+      "url": "https://cdn.modrinth.com/data/HXF82T3G/versions/BtZKRp69/BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar",
+      "sha512": "1569d9ed5b619f99d61a7cf1b2d886b278df2905b3ce9324f8e7a17c5c960312ec681cc06f1ad96644bde2cdc60440d8be9952f0ee0f84f7937210f46fbb21d7"
+    },
+    "s3dmwKy5": {
+      "version_id": "S2TfWrZR",
+      "version": "2.1.0.2",
+      "filename": "GlitchCore-neoforge-1.21.1-2.1.0.2.jar",
+      "url": "https://cdn.modrinth.com/data/s3dmwKy5/versions/S2TfWrZR/GlitchCore-neoforge-1.21.1-2.1.0.2.jar",
+      "sha512": "7a009ed163d03536fdfaee7b37cb1ec3073204dffcb06a683369aa88da8dbc3780b0ac69d466bb32a3ad9394c97b698d0fda676e1b4dd4edfc50ac5aa2283c32"
+    },
+    "kkmrDlKT": {
+      "version_id": "6e8GCrLb",
+      "version": "4.1.0.8",
+      "filename": "TerraBlender-neoforge-1.21.1-4.1.0.8.jar",
+      "url": "https://cdn.modrinth.com/data/kkmrDlKT/versions/6e8GCrLb/TerraBlender-neoforge-1.21.1-4.1.0.8.jar",
+      "sha512": "9d4b2a1be5139c0fb2fad92ed21805b17d9e83b6ea48e637e018bb14063c1823a206390755dbfe8d025c20fd62ac11cdd84db53ddb956dabaeda01bff57bac50"
+    },
+    "o1qh5qIF": {
+      "version_id": "B5BcNY1z",
+      "version": "1.3.3+1.21.1-neoforge",
+      "filename": "integrated_villages-1.3.3+1.21.1-neoforge.jar",
+      "url": "https://cdn.modrinth.com/data/o1qh5qIF/versions/B5BcNY1z/integrated_villages-1.3.3%2B1.21.1-neoforge.jar",
+      "sha512": "50d119a972c8813b7c6d54db828a5130f342ff8ec2728bf3c73057d46b1d575d00f37ed76a20c5dbcc84cb74970961ebf31065818f16f49b6c7a297605fba161"
+    },
+    "b4628Bd1": {
+      "version_id": "ZCmcmtOR",
+      "version": "1.0.2",
+      "filename": "underwater_village-1.0.2-neoforge-1.21.1.jar",
+      "url": "https://cdn.modrinth.com/data/b4628Bd1/versions/ZCmcmtOR/underwater_village-1.0.2-neoforge-1.21.1.jar",
+      "sha512": "87362fb9df4851e5445d6536bbe4a149f9effb38def78ffaed6f33fe656d1333add9566983a13b2038796b6c7ac7a26961e2306c66bf5c7ca43704babc1738df"
+    },
+    "oLS8HdJ1": {
+      "version_id": "4LJBMyPK",
+      "version": "2.16.2",
+      "filename": "StreamsReflowing-1.21.1-neoforge-2.16.2.jar",
+      "url": "https://cdn.modrinth.com/data/oLS8HdJ1/versions/4LJBMyPK/StreamsReflowing-1.21.1-neoforge-2.16.2.jar",
+      "sha512": "2683e819f90cb3e79e1797f7fbf56353009591f382bf65c3cca0a6f0f7ac4b7ebe8773a1beef665c674e92db75faaf227ff95453a05f6f75408554b55aef83c3"
+    },
+    "R7r9n6Wu": {
+      "version_id": "guWxFvi4",
+      "version": "1.2.2",
+      "filename": "railwaysuntold-1.21.1-neoforge-1.2.2.jar",
+      "url": "https://cdn.modrinth.com/data/R7r9n6Wu/versions/guWxFvi4/railwaysuntold-1.21.1-neoforge-1.2.2.jar",
+      "sha512": "36f7f2f6717ec251bb4b8aa9cae3d50d272efe0fa8a47066dbd7cb44ebf88bb21b4a5f377001cec6c17f9d2dc963117e4ed524c22dca9602af63679c5183e308"
+    },
+    "Tkikq67H": {
+      "version_id": "M9SMxdTX",
+      "version": "0.6.3-neoforge-21.1",
+      "filename": "regions-unexplored-0.6.3-neoforge-21.1.jar",
+      "url": "https://cdn.modrinth.com/data/Tkikq67H/versions/M9SMxdTX/regions-unexplored-0.6.3-neoforge-21.1.jar",
+      "sha512": "744b7c37cfc7613c0c5f8507a309f61adcb117ab4ac1c572ea7b167fa7bc64d6ab0096ef7a1f0be7d33c0614cf01f76b88f25cf35936040938930c82c8f42501"
+    },
+    "QZt2fevq": {
+      "version_id": "Ql4wHWDb",
+      "version": "1.2.1",
+      "filename": "naturaltemperature-1.2.1-NEOFORGE-MC-1.21.1.jar",
+      "url": "https://cdn.modrinth.com/data/QZt2fevq/versions/Ql4wHWDb/naturaltemperature-1.2.1-NEOFORGE-MC-1.21.1.jar",
+      "sha512": "d5a610eb05de6fe26778e6714276202cd4dfb1e4830b26d75e5322131916b80afeead0fcc4e76c266e8f5cfa715ed15f7fab96b19edfbc52b48e9d47bef25ee6"
+    },
+    "fFEIiSDQ": {
+      "version_id": "rWq0ko29",
+      "version": "1.21.1-4.0.2",
+      "filename": "supplementaries-1.21.1-4.0.2-neoforge.jar",
+      "url": "https://cdn.modrinth.com/data/fFEIiSDQ/versions/rWq0ko29/supplementaries-1.21.1-4.0.2-neoforge.jar",
+      "sha512": "092034ac007c327c9dd58c68ae585df59fa523a5ca40da88b34ad8f1c6347523d302e490acc1650eae6837f46979442ea8a8c151802074de2da99c396ec28894"
+    },
+    "twkfQtEc": {
+      "version_id": "fAIfWX6M",
+      "version": "1.21.1-3.7.2",
+      "filename": "moonlight-1.21.1-3.7.2-neoforge.jar",
+      "url": "https://cdn.modrinth.com/data/twkfQtEc/versions/fAIfWX6M/moonlight-1.21.1-3.7.2-neoforge.jar",
+      "sha512": "b4e8efba91e5f46729928335cce8952ad70af3e33b851e8cf4887a24346f7bbdfe3609f8cc482f76a715aa050bf39e7048ee97b33183e5c358f149bc3678183c"
+    },
+    "V6fKbpBN": {
+      "version_id": "oddRiz2I",
+      "version": "1.9.1",
+      "filename": "integrated_api-neoforge-1.21.1-1.9.1.jar",
+      "url": "https://cdn.modrinth.com/data/V6fKbpBN/versions/oddRiz2I/integrated_api-neoforge-1.21.1-1.9.1.jar",
+      "sha512": "272c007e99ab82798dbc4fc86eeedd6e16668ca976138725983a955006e4a318a63029ed4436745e21932f7527bf872f633032de402366c1b23203514ee87e22"
+    },
+    "LNytGWDc": {
+      "version_id": "UjX6dr61",
+      "version": "6.0.10+mc1.21.1",
+      "filename": "create-1.21.1-6.0.10.jar",
+      "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/UjX6dr61/create-1.21.1-6.0.10.jar",
+      "sha512": "11cc8fc049d2f67f6548c7abfada6b82a3adb5c7ca410a742de04bbca76e03862c518721b88d806f6e6d768a4d68531fdb903a85859b25d1484d550cc7bafd4b"
+    }
+  },
+  "unavailable": {}
+}

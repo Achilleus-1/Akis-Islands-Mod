@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+issueTrackerURL="https://github.com/Achilleus-1/Akis-Islands-Mod/issues"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+displayURL="https://github.com/Achilleus-1/Akis-Islands-Mod"
+authors="Achilleus (Achilleus-1)"
+credits="Original mod and artwork by Achilleus. Built with NeoForge and the NeoForged MDK."
+logoFile="icon.png"
+description='''
+Configurable finite continents in an endless ocean, with a coastline preview before world creation.
+Preserves the selected noise generator's biome source, surface rules, and structure pipeline.
+'''
+
+[[dependencies.${mod_id}]]
+modId="neoforge"
+type="required"
+versionRange="[${neo_version},21.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="minecraft"
+type="required"
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"
