@@ -17,10 +17,10 @@ public record LatitudeClimate(LatitudeClimateSettings settings, double northExte
         double middle = settings.temperatePercent() / 100.0;
         double magnitude;
         if (latitude <= middle) {
-            magnitude = 0.12 * smoothstep(latitude / middle);
+            magnitude = 0.12 * ease(latitude / middle);
         } else {
             double transition = (1 - middle) * settings.transitionPercent() / 100.0;
-            magnitude = 0.12 + 0.78 * smoothstep((latitude - middle) / transition);
+            magnitude = 0.12 + 0.78 * ease((latitude - middle) / transition);
         }
         return Math.copySign(magnitude, z);
     }
@@ -29,12 +29,13 @@ public record LatitudeClimate(LatitudeClimateSettings settings, double northExte
         if (!settings.enabled() || settings.strengthPercent() == 0 || y <= 0) return original;
         // Retain local variation within bands. Humidity and all other climate coordinates stay native.
         double target = ContinentShape.clamp(baseTemperature(z) + 0.18 * Math.tanh(original), -1, 1);
-        double blend = settings.strengthPercent() / 100.0 * smoothstep(y / 48.0);
+        double blend = settings.strengthPercent() / 100.0 * ease(y / 48.0);
         return original + blend * (target - original);
     }
 
-    private static double smoothstep(double value) {
+    private double ease(double value) {
         double t = ContinentShape.clamp(value, 0, 1);
-        return t * t * (3 - 2 * t);
+        // Quintic easing has zero first AND second derivatives at the joins and coast extremes.
+        return settings.smoothTransitions() ? t * t * t * (t * (t * 6 - 15) + 10) : t * t * (3 - 2 * t);
     }
 }

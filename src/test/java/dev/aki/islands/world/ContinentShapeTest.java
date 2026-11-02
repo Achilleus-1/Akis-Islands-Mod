@@ -4,6 +4,8 @@ import com.google.gson.JsonParser;
 import com.mojang.serialization.JsonOps;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayDeque;
+import java.util.HexFormat;
+import java.security.MessageDigest;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ContinentShapeTest {
@@ -96,5 +98,63 @@ class ContinentShapeTest {
         assertEquals(ContinentSettings.LEGACY_DEFAULT,
                 ContinentSettings.CODEC.parse(JsonOps.INSTANCE, JsonParser.parseString("{}")).getOrThrow());
         assertThrows(IllegalArgumentException.class, () -> settings(ContinentSettings.Layout.SINGLE, 999, 3));
+    }
+
+    @Test void existingLayoutsKeepTheirReleasedCoastlines() throws Exception {
+        // Coastline fingerprints sampled from the published 0.3.0 jar, before adding MIXED.
+        String[] expected = {"40226848792691887baa4f34b4ea6d933ec24efe8a08990440dadb138da32109",
+                "958d5cc6d15123595df2be8a4051345641252052164d6b2ad939a1f6cbc72ae4",
+                "d3e9cc4bf71038b84974ee82e742e6c456fb62c4d30fa1402ec077e037fa7b58"};
+        var modes = new ContinentSettings.Layout[]{ContinentSettings.Layout.SINGLE,
+                ContinentSettings.Layout.CONNECTED, ContinentSettings.Layout.ARCHIPELAGO};
+        for (int i = 0; i < modes.length; i++) {
+            var hash = MessageDigest.getInstance("SHA-256");
+            for (int count : new int[]{2, 6}) for (long seed : new long[]{-13, 0, 8675309}) {
+                var shape = new ContinentShape(settings(modes[i], 4000, count), seed);
+                for (int x = -6400; x <= 6400; x += 80) for (int z = -6400; z <= 6400; z += 80) {
+                    hash.update((byte) (shape.landWeight((double) x, (double) z) >= .5 ? 1 : 0));
+                }
+            }
+            assertEquals(expected[i], HexFormat.of().formatHex(hash.digest()), modes[i] + " changed an existing coastline");
+        }
+    }
+
+    @Test void mixedPlansCombineLargeLandmassesAndSmallOffshoreIslands() {
+        for (long seed = 0; seed < 9; seed++) {
+            var config = settings(ContinentSettings.Layout.MIXED, 8000, 3);
+            assertEquals(config, ContinentSettings.CODEC.parse(JsonOps.INSTANCE,
+                    ContinentSettings.CODEC.encodeStart(JsonOps.INSTANCE, config).getOrThrow()).getOrThrow());
+            var shape = new ContinentShape(config, seed);
+            var same = new ContinentShape(config, seed);
+            int size = 201;
+            double step = shape.extent() * 2.1 / (size - 1);
+            boolean[][] land = new boolean[size][size];
+            int large = 0, small = 0;
+            for (int x = 0; x < size; x++) for (int z = 0; z < size; z++) {
+                double wx = (x - 100) * step, wz = (z - 100) * step;
+                double weight = shape.landWeight(wx, wz);
+                assertEquals(weight, same.landWeight(wx, wz));
+                land[x][z] = weight >= .5;
+            }
+            for (int x = 0; x < size; x++) for (int z = 0; z < size; z++) {
+                if (!land[x][z]) continue;
+                ArrayDeque<int[]> queue = new ArrayDeque<>();
+                queue.add(new int[]{x, z}); land[x][z] = false;
+                int area = 0;
+                while (!queue.isEmpty()) {
+                    int[] p = queue.remove(); area++;
+                    for (int[] d : new int[][]{{1,0},{-1,0},{0,1},{0,-1}}) {
+                        int nx = p[0] + d[0], nz = p[1] + d[1];
+                        if (nx >= 0 && nz >= 0 && nx < size && nz < size && land[nx][nz]) {
+                            land[nx][nz] = false; queue.add(new int[]{nx, nz});
+                        }
+                    }
+                }
+                if (area >= 300) large++;
+                else if (area >= 4) small++;
+            }
+            assertTrue(large >= 2, "Mixed layout needs separate large landmasses at seed " + seed);
+            assertTrue(small >= 1, "Mixed layout needs satellite islands at seed " + seed);
+        }
     }
 }

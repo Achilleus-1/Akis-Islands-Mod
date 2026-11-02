@@ -14,6 +14,7 @@ import net.minecraft.network.chat.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Consumer;
 import java.util.function.IntConsumer;
 import java.util.function.IntSupplier;
@@ -25,6 +26,7 @@ final class LatitudeClimateScreen extends Screen {
     private final ContinentShape shape;
     private LatitudeClimateSettings draft;
     private final List<ClimateSlider> sliders = new ArrayList<>();
+    private Button presets, reset;
     private final boolean external = ClimateCompatibility.hasExternalController();
 
     LatitudeClimateScreen(Screen parent, LatitudeClimateSettings settings, Consumer<LatitudeClimateSettings> save, ContinentShape shape) {
@@ -44,14 +46,27 @@ final class LatitudeClimateScreen extends Screen {
             draft = draft.withEnabled(!draft.enabled());
             button.setMessage(modeLabel());
             updateActive();
-        }).bounds(x, 38, w, 20).tooltip(Tooltip.create(Component.translatable(external
+        }).bounds(x, 34, w, 20).tooltip(Tooltip.create(Component.translatable(external
                 ? "akis_islands.climate.external.tip" : "akis_islands.climate.mode.tip"))).build());
         toggle.active = !external;
-        slider("middle", x, 70, w, 50, 90, draft::temperatePercent,
+        int half = (w - 8) / 2;
+        presets = addRenderableWidget(Button.builder(presetLabel(), button -> {
+            var choices = LatitudeClimateSettings.Preset.values();
+            var current = selectedPreset();
+            var next = choices[current == null ? 0 : (current.ordinal() + 1) % choices.length];
+            draft = next.apply(draft.enabled());
+            syncValues();
+        }).bounds(x, 60, half, 20).tooltip(Tooltip.create(Component.translatable("akis_islands.climate.preset.tip"))).build());
+        reset = addRenderableWidget(Button.builder(Component.translatable("akis_islands.climate.reset"), button -> {
+            draft = draft.resetValues();
+            syncValues();
+        }).bounds(x + half + 8, 60, w - half - 8, 20)
+                .tooltip(Tooltip.create(Component.translatable("akis_islands.climate.reset.tip"))).build());
+        slider("middle", x, 90, w, 50, 90, () -> draft.temperatePercent(),
                 value -> draft = new LatitudeClimateSettings(draft.enabled(), value, draft.strengthPercent(), draft.transitionPercent()));
-        slider("strength", x, 102, w, 0, 100, draft::strengthPercent,
+        slider("strength", x, 114, w, 0, 100, () -> draft.strengthPercent(),
                 value -> draft = new LatitudeClimateSettings(draft.enabled(), draft.temperatePercent(), value, draft.transitionPercent()));
-        slider("transition", x, 134, w, 50, 200, draft::transitionPercent,
+        slider("transition", x, 138, w, 50, 200, () -> draft.transitionPercent(),
                 value -> draft = new LatitudeClimateSettings(draft.enabled(), draft.temperatePercent(), draft.strengthPercent(), value));
         int buttonW = Math.min(150, (width - 36) / 2);
         int start = (width - 2 * buttonW - 8) / 2;
@@ -69,13 +84,31 @@ final class LatitudeClimateScreen extends Screen {
                 : draft.enabled() ? "akis_islands.climate.on" : "akis_islands.climate.off");
     }
 
+    private LatitudeClimateSettings.Preset selectedPreset() {
+        for (var preset : LatitudeClimateSettings.Preset.values()) if (preset.matches(draft)) return preset;
+        return null;
+    }
+
+    private Component presetLabel() {
+        var selected = selectedPreset();
+        return Component.translatable("akis_islands.climate.preset", Component.translatable("akis_islands.climate.preset."
+                + (selected == null ? "custom" : selected.name().toLowerCase(Locale.ROOT))));
+    }
+
+    private void syncValues() {
+        for (var slider : sliders) slider.sync();
+        presets.setMessage(presetLabel());
+    }
+
     private void slider(String key, int x, int y, int width, int min, int max, IntSupplier read, IntConsumer write) {
-        var slider = new ClimateSlider(key, x, y, width, min, max, read.getAsInt(), write);
+        var slider = new ClimateSlider(key, x, y, width, min, max, read, write);
         sliders.add(addRenderableWidget(slider));
     }
 
     private void updateActive() {
         for (var slider : sliders) slider.active = draft.enabled() && !external;
+        presets.active = !external;
+        reset.active = !external;
     }
 
     @Override
@@ -109,18 +142,25 @@ final class LatitudeClimateScreen extends Screen {
         private final String key;
         private final int min, max;
         private final IntConsumer write;
+        private final IntSupplier read;
 
-        ClimateSlider(String key, int x, int y, int width, int min, int max, int initial, IntConsumer write) {
-            super(x, y, width, 20, Component.empty(), (initial - min) / (double) (max - min));
+        ClimateSlider(String key, int x, int y, int width, int min, int max, IntSupplier read, IntConsumer write) {
+            super(x, y, width, 20, Component.empty(), (read.getAsInt() - min) / (double) (max - min));
             this.key = key;
             this.min = min;
             this.max = max;
             this.write = write;
+            this.read = read;
             setTooltip(Tooltip.create(Component.translatable("akis_islands.climate." + key + ".tip")));
             updateMessage();
         }
 
         private int number() { return (int) Math.round(min + value * (max - min)); }
+
+        private void sync() {
+            value = (read.getAsInt() - min) / (double) (max - min);
+            updateMessage();
+        }
 
         @Override
         protected void updateMessage() {
@@ -128,6 +168,9 @@ final class LatitudeClimateScreen extends Screen {
         }
 
         @Override
-        protected void applyValue() { write.accept(number()); }
+        protected void applyValue() {
+            write.accept(number());
+            presets.setMessage(presetLabel());
+        }
     }
 }

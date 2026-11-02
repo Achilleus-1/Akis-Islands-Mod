@@ -31,13 +31,19 @@ public final class LatitudeClimateTests {
         var registries = helper.getLevel().registryAccess();
         var preset = registries.registryOrThrow(Registries.WORLD_PRESET).get(ResourceLocation.withDefaultNamespace("normal"));
         var base = (NoiseBasedChunkGenerator) preset.createWorldDimensions().overworld();
-        var disabled = new ContinentChunkGenerator(base.getBiomeSource(), base.generatorSettings(), ContinentSettings.DEFAULT, 1234567);
+        var layout = new ContinentSettings(ContinentSettings.Layout.MIXED, 8000, 3);
+        var disabled = new ContinentChunkGenerator(base.getBiomeSource(), base.generatorSettings(), layout, 1234567);
         var configured = new LatitudeClimateSettings(true, 65, 85, 100);
-        var enabled = new ContinentChunkGenerator(base.getBiomeSource(), base.generatorSettings(), ContinentSettings.DEFAULT, 1234567, configured);
+        var enabled = new ContinentChunkGenerator(base.getBiomeSource(), base.generatorSettings(), layout, 1234567, configured);
         var ops = RegistryOps.create(JsonOps.INSTANCE, registries);
         var encoded = ChunkGenerator.CODEC.encodeStart(ops, enabled).getOrThrow();
         var decoded = (ContinentChunkGenerator) ChunkGenerator.CODEC.parse(ops, encoded).getOrThrow();
         helper.assertTrue(decoded.latitudeClimate().equals(configured), "Latitude settings did not survive world serialization");
+        helper.assertTrue(decoded.islands().equals(layout), "Mixed layout did not survive world serialization");
+        var legacyCurve = encoded.getAsJsonObject().deepCopy();
+        legacyCurve.getAsJsonObject("latitude_climate").remove("smooth_transitions");
+        helper.assertTrue(!((ContinentChunkGenerator) ChunkGenerator.CODEC.parse(ops, legacyCurve).getOrThrow()).latitudeClimate().smoothTransitions(),
+                "Loading a 0.3 world changed its climate curve");
         helper.assertTrue(decoded.latitudeClimate().temperatePercent() > 50, "Default middle should be larger than the combined ends");
         var old = ChunkGenerator.CODEC.encodeStart(ops, disabled).getOrThrow().getAsJsonObject().deepCopy();
         old.remove("latitude_climate");
@@ -46,7 +52,7 @@ public final class LatitudeClimateTests {
         helper.assertTrue(enabled.getBiomeSource() == base.getBiomeSource(), "Latitude climate replaced the biome source");
         var a = RandomState.create(disabled.generatorSettings().value(), registries.lookupOrThrow(Registries.NOISE), 8675309);
         var b = RandomState.create(decoded.generatorSettings().value(), registries.lookupOrThrow(Registries.NOISE), 8675309);
-        var shape = new ContinentShape(ContinentSettings.DEFAULT, 1234567);
+        var shape = new ContinentShape(layout, 1234567);
         int north = -(int) Math.ceil(shape.northExtent() * 1.2), south = (int) Math.ceil(shape.southExtent() * 1.2);
         for (int x : new int[]{-512, 0, 512}) for (int z : new int[]{north, 0, south}) {
             for (int y : new int[]{-32, 0, 32, 64, 128}) {

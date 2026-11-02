@@ -1,6 +1,6 @@
 # Compatibility test record
 
-**2026-11-01 — 0.3.0-alpha, Minecraft 1.21.1, NeoForge 21.1.265, Java 21.** This is an alpha test record, not a universal compatibility guarantee.
+**2026-11-01 — 0.4.0-alpha, Minecraft 1.21.1, NeoForge 21.1.265, Java 21.** This is an alpha test record, not a universal compatibility guarantee.
 
 The full artifact list, download URLs, and SHA-512 hashes are recorded in [tested-mods.json](tested-mods.json). `python scripts/fetch_compat_mods.py --locked` reproduces those downloads.
 
@@ -20,17 +20,18 @@ Required dependencies also loaded: Lithostitched 1.8.1, TerraBlender 4.1.0.8, Gl
 
 ## What the checks establish
 
-- Eleven unit tests cover deterministic layouts, finite oceans, connected land plans, settings compatibility, north/south direction, broad middle coverage, smooth and adjustable transitions, underground preservation, local variation, and climate settings persistence.
+- Fifteen unit tests cover deterministic layouts, finite oceans, connected land plans, settings compatibility, north/south direction, broad middle coverage, smooth and adjustable transitions, underground preservation, local variation, and climate settings persistence. The new checks cover separate large landmasses plus satellite islands, original-layout coastline fingerprints sampled from the published 0.3 jar, old climate curve preservation, smoother joins, presets, and reset behavior.
 - A NeoForge GameTest encodes and decodes the actual registered chunk-generator codec, checks old saves whose default settings were omitted, verifies retained biome-source/surface-rule references, and samples terrain heights around the origin and in distant oceans. It also compares ocean density against the active pack's native generator with ocean continentalness, including below sea level, and checks that temperature and humidity remain unchanged.
 - A second GameTest enables latitude climate, round-trips its settings, checks missing settings in old saves, compares enabled/disabled terrain density and humidity, checks underground climate preservation, and queries the retained biome source with the new climate. The vanilla profile selected deep frozen ocean north, temperate forests/plains in the middle, and warm ocean south. The modded profile also selected Terralith's deep warm ocean in the south. Gameplay biome temperature is not used as a proxy for the separate placement coordinate.
 - The full-generation profile installs the continent generator as the real Overworld generator. It locates inland terrain inside the central planned landmass, generates a completed chunk there, checks its retained heightmap, and generates a distant completed chunk to check ocean water. Rivers or lakes may cross the exact origin.
 - Full-profile assertions check that Terralith, Biomes O' Plenty, and Regions Unexplored remain in the biome source's available biome namespaces.
 - The 0.2.0 native client check confirmed that Game has no floating mod controls, World Type exposes the native Customize button for Aki's Islands, all three layout modes remain available, Randomize Shape changes the preview, and Apply preserves the selected shape when Customize is reopened.
 - The 0.3.0 development client launches successfully. The added climate screen has not received a visual click-through: the Windows UI helper's native pipe was unavailable after retries and a kernel reset. Build, model tests, actual biome-selection tests, saved-settings checks, and the active-climate full-chunk profile pass; the new sliders/preview still need a manual visual check.
+- The 0.4.0 update passes the vanilla profile's two GameTests, the active-climate seven-mod profile's three GameTests including real inland/ocean chunks, and the nine-mod profile's two GameTests including Natural Temperature delegation. The climate probe now uses Mixed continents and checks the new easing flag through the actual registered generator codec. Nine generated Mixed coastline plans were visually inspected. The editor's new preset/reset controls remain unverified by visual click-through: the Windows helper still reports `failed to connect native pipe` (`os error 2`).
 
 The active climate terrain profile omits Railways Untold (its GameTest harness replaces the generator) and Natural Temperature (it owns the temperature controller). It retains the other seven requested mods and all required dependencies. All three GameTests pass with a real latitude-enabled continent Overworld. The separate nine-mod profile passes both lightweight GameTests and confirms automatic external-controller delegation.
 
-The terrain test uses world seed 0, internal shape state 1234567, attached continents, a 2,000-block layout radius, three landmasses, and latitude enabled with a 65% middle, 85% strength, and 100% transition length. The lightweight tests additionally use terrain seed 8675309 and the default 8,000-block continent. These are representative checks, not an exhaustive seed search.
+The 0.4 terrain test uses world seed 0, internal shape state 1234567, Mixed continents, a 2,000-block layout radius, three main landmasses, and latitude enabled with a 65% middle, 85% strength, 100% transition length, and smooth easing. The lightweight tests additionally use terrain seed 8675309, the default 8,000-block single continent for native terrain checks, and an 8,000-block Mixed plan for latitude checks. These are representative checks, not an exhaustive seed search.
 
 ## What remains unverified
 

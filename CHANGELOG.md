@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0-alpha — 2026-11-01
+
+- Added Mixed continents: 2–6 large landmasses with randomized satellite islands, occasional land bridges, coves, and peninsulas.
+- Added Default, Balanced (roughly 50% moderate / 25% cold / 25% hot), Temperate, and Gentle climate presets.
+- Added Reset to default for climate values, preserving the enabled/disabled choice.
+- Added smoother quintic easing for new climate settings, while retaining the original curve when loading 0.3 saves.
+- Kept the existing three layouts' generation and the native biome, terrain, and structure stages unchanged.
+
 ## 0.3.0-alpha — 2026-11-01
 
 - Added opt-in north-to-south latitude climate, with a broad temperate middle and gradual cold/hot ends.

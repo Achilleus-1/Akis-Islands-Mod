@@ -38,6 +38,7 @@ bin/
 
 ### Minecraft Modding ###
 run/
+run-*/
 run-compat/
 run-compat-terrain/
 run-gametest/

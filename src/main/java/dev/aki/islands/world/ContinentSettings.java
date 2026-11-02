@@ -9,7 +9,7 @@ import java.util.function.Function;
 /** Immutable world settings. Distances are in blocks. */
 public record ContinentSettings(Layout layout, int radius, int count, int coastWidth,
                                 double roughness, int bridgeWidth, int oceanDepth, Climate climate, int format) {
-    public enum Layout { SINGLE, CONNECTED, ARCHIPELAGO }
+    public enum Layout { SINGLE, CONNECTED, ARCHIPELAGO, MIXED }
     public enum Climate { UNCHANGED, NORTH_TO_SOUTH, EQUATOR }
     public static final ContinentSettings DEFAULT = new ContinentSettings(Layout.SINGLE, 8000, 3);
     public static final ContinentSettings LEGACY_DEFAULT = new ContinentSettings(

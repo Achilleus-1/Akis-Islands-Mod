@@ -79,10 +79,48 @@ class LatitudeClimateTest {
         var settings = new LatitudeClimateSettings(true, 80, 92, 150);
         var json = LatitudeClimateSettings.CODEC.encodeStart(JsonOps.INSTANCE, settings).getOrThrow();
         assertEquals(settings, LatitudeClimateSettings.CODEC.parse(JsonOps.INSTANCE, json).getOrThrow());
-        assertEquals(LatitudeClimateSettings.DISABLED, LatitudeClimateSettings.CODEC.parse(JsonOps.INSTANCE, JsonParser.parseString("{}")).getOrThrow());
+        assertEquals(new LatitudeClimateSettings(false, 65, 85, 100, false),
+                LatitudeClimateSettings.CODEC.parse(JsonOps.INSTANCE, JsonParser.parseString("{}")).getOrThrow());
         for (String invalid : new String[]{"{\"temperate_percent\":49}", "{\"temperate_percent\":91}",
                 "{\"strength_percent\":101}", "{\"transition_percent\":49}", "{\"transition_percent\":201}"}) {
             assertTrue(LatitudeClimateSettings.CODEC.parse(JsonOps.INSTANCE, JsonParser.parseString(invalid)).error().isPresent());
         }
+    }
+
+    @Test void oldClimateSavesKeepTheirExactCurveAndNewSettingsUseSmootherEasing() {
+        var old = LatitudeClimateSettings.CODEC.parse(JsonOps.INSTANCE, JsonParser.parseString(
+                "{\"enabled\":true,\"temperate_percent\":65,\"strength_percent\":85,\"transition_percent\":100}")).getOrThrow();
+        assertFalse(old.smoothTransitions());
+        assertFalse(old.withEnabled(false).smoothTransitions());
+        assertEquals(old, LatitudeClimateSettings.CODEC.parse(JsonOps.INSTANCE,
+                LatitudeClimateSettings.CODEC.encodeStart(JsonOps.INSTANCE, old).getOrThrow()).getOrThrow());
+        assertEquals(.12 * .15625, climate(old).baseTemperature(162.5), 1e-15);
+        assertEquals(.12 + .78 * .15625, climate(old).baseTemperature(737.5), 1e-15);
+        var smooth = climate(LatitudeClimateSettings.DEFAULT);
+        assertTrue(smooth.baseTemperature(655) < climate(old).baseTemperature(655));
+        // A cubic join has a nonzero second derivative. The quintic join tends to zero.
+        double h = .01;
+        for (double join : new double[]{-1000, -650, 0, 650, 1000}) {
+            double curvature = (smooth.baseTemperature(join + h) - 2 * smooth.baseTemperature(join)
+                    + smooth.baseTemperature(join - h)) / (h * h);
+            assertEquals(0, curvature, 1e-8);
+        }
+    }
+
+    @Test void presetsAndResetPreserveEnableStateAndRoundTripTheirValues() {
+        for (boolean enabled : new boolean[]{false, true}) {
+            for (var preset : LatitudeClimateSettings.Preset.values()) {
+                var settings = preset.apply(enabled);
+                assertEquals(enabled, settings.enabled());
+                assertTrue(preset.matches(settings));
+                assertEquals(settings, LatitudeClimateSettings.CODEC.parse(JsonOps.INSTANCE,
+                        LatitudeClimateSettings.CODEC.encodeStart(JsonOps.INSTANCE, settings).getOrThrow()).getOrThrow());
+                assertEquals(LatitudeClimateSettings.DEFAULT.withEnabled(enabled), settings.resetValues());
+            }
+        }
+        var balanced = LatitudeClimateSettings.Preset.BALANCED.apply(true);
+        assertEquals(50, balanced.temperatePercent());
+        assertEquals(.12, climate(balanced).baseTemperature(500), 1e-12);
+        assertTrue(climate(balanced).baseTemperature(750) > .12);
     }
 }

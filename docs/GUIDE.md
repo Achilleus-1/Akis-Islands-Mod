@@ -1,15 +1,15 @@
 # Aki's Islands guide
 
-An alpha world-generation mod for **Minecraft 1.21.1 / NeoForge 21.1.265 / Java 21**. Plan one continent, several connected continents, or an island group, surrounded by an ocean that continues to Minecraft's normal world limits.
+An alpha world-generation mod for **Minecraft 1.21.1 / NeoForge 21.1.265 / Java 21**. Plan one continent, several connected continents, an island group, or mixed continents, surrounded by an ocean that continues to Minecraft's normal world limits.
 
 NeoForge 21.2 targets Minecraft 1.21.2. This project uses **21.1.265**, the matching build for the requested Minecraft version.
 
 ## Try it
 
 1. Build with `./gradlew build` (`.\gradlew.bat build` in PowerShell), using Java 21.
-2. Install `build/libs/akis-islands-mod-1.21.1-0.3.0-alpha.jar` in the client and server `mods` folders, replacing the previous version.
+2. Install `build/libs/akis-islands-mod-1.21.1-0.4.0-alpha.jar` in the client and server `mods` folders, replacing the previous version.
 3. Open **Singleplayer → Create New World → World** and select **World Type: Aki's Islands**.
-4. Use the native **Customize** button beside World Type. Choose **One continent**, **Attached continents**, or **Islands**, then set size/count or click **Randomize Shape**.
+4. Use the native **Customize** button beside World Type. Choose **One continent**, **Attached continents**, **Islands**, or **Mixed continents**, then set size/count or click **Randomize Shape**.
 5. Choose **Apply layout** and create the world. **Cancel** leaves the applied layout unchanged. Select Minecraft's ordinary world type to use ordinary world generation.
 
 The editor belongs to the World Type panel; no extra controls are added to the Game or More tabs. Selecting another world type afterward replaces the applied layout. The preset uses the active pack's `minecraft:overworld` noise settings and biome preset. Packs with a separate custom world type may need a preset adapter.
@@ -18,7 +18,7 @@ The editor belongs to the World Type panel; no extra controls are added to the G
 
 | Setting | Meaning |
 | --- | --- |
-| Layout | One continent, attached continents, or islands. |
+| Layout | One continent, attached continents, islands, or mixed continents. Mixed continents add randomized satellites, occasional land bridges, coves, and peninsulas around 2–6 large landmasses. |
 | Radius | Overall layout scale, 1,000–100,000 blocks. This is approximate: irregular coastlines and blending can extend farther. |
 | Landmasses | 2–6; ignored for a single continent. |
 | Randomize Shape | Generate another coastline while keeping the layout, radius, and count. Minecraft's world seed stays unchanged. |
@@ -54,6 +54,17 @@ Open **Customize → Climate**, enable **North to South**, adjust the controls, 
 | Band strength | 85% | 0-100%. Blends between native temperature and the latitude profile, retaining local variation. Zero is exactly native temperature. |
 | Transition length | 100% | 50-200%. Controls how far beyond the normal middle the gradual change to cold/hot takes. It does not shrink the middle. |
 
+Click **Preset** to cycle through the starting values below. You can then adjust any slider; the label becomes **Custom** when the values no longer match a preset. **Reset to default** restores the default values. Both controls keep climate on/off unchanged, work while climate is off, and remain unavailable when Natural Temperature owns climate. Choose **Done** to keep your edits or **Cancel** to discard them.
+
+| Preset | Moderate middle | Approximate cold / hot span | Band strength | Transition length |
+| --- | --- | --- | --- | --- |
+| Default | 65% | 17.5% / 17.5% | 85% | 100% |
+| Balanced | 50% | 25% / 25% | 85% | 100% |
+| Temperate | 80% | 10% / 10% | 85% | 100% |
+| Gentle | 65% | 17.5% / 17.5% | 65% | 150% |
+
+These are planned latitude proportions, not measured biome or land-area percentages. Each hemisphere fits its own coastline extent; asymmetric shapes, gradual transitions, native variation, and biome rules affect the final distribution.
+
 North (-Z) becomes colder and south (+Z) becomes hotter. The middle remains temperate with gentle variation; it is not a constant temperature. Smooth transitions replace hard climate boundaries. The profile fits each hemisphere's actual planned land extent, so thin or rotated island groups still receive useful bands. Longer transitions can place the strongest extremes beyond the shore. The preview colors indicate the planned climate, not exact biomes.
 
 The system changes only the temperature input to the **existing biome selector**. Native humidity remains active, allowing wet and dry variants within each band. Modded biomes keep their authored climate ranges, terrain/depth requirements, regional selection, surface rules, and features. The mod does not classify biomes by name or replace biome IDs after selection. Individual biome coverage still depends on the pack's rules and on how much suitable climate/terrain exists in the finite land area.
@@ -63,6 +74,8 @@ Underground temperature is unchanged at and below Y=0, with a smooth fade to sur
 **Natural Temperature owns climate when installed.** The editor identifies it and disables Aki's latitude controls; generator loading also defers automatically, including for data-pack settings that request bands. Use Natural Temperature's settings, or omit that redundant climate mod to use Aki's adjustable bands. No external config is changed. Other mods that override the final temperature sample or use independent biome selectors may need adapters; universal compatibility is not established.
 
 Latitude settings are saved per world. Missing settings in older saves mean **disabled**, so upgrading does not turn this feature on in existing worlds. As with other worldgen mods, adding/removing a climate controller in an existing save can change newly generated biomes.
+
+New climate settings use quintic easing: both the rate of temperature change and its rate of acceleration ease to zero at the joins. This softens the transition into and out of the bands; biome selection still follows Minecraft's and your mods' rules. Version 0.3 saves keep their original cubic curve. Editing a climate value, choosing a preset, or resetting values opts that edited configuration into the new easing. Merely loading a save does not change its curve. Existing three-layout coastlines remain unchanged.
 
 The Nether, End, and other dimensions retain their selected generators. This mod controls the Overworld's land footprint; it does not change the world border or Minecraft's coordinate limits.
 
@@ -95,12 +108,13 @@ For custom server settings, create the world in the client editor and copy its s
     "enabled": true,
     "temperate_percent": 65,
     "strength_percent": 85,
-    "transition_percent": 100
+    "transition_percent": 100,
+    "smooth_transitions": true
   }
 }
 ```
 
-`layout` accepts `SINGLE`, `CONNECTED`, or `ARCHIPELAGO`. Use **Randomize Shape** in the editor to choose another shape; its internal random state is persisted automatically.
+`layout` accepts `SINGLE`, `CONNECTED`, `ARCHIPELAGO`, or `MIXED`. Mixed layout's count controls its large landmasses; satellite count is randomized. Use **Randomize Shape** in the editor to choose another shape; its internal random state is persisted automatically. Include `smooth_transitions: true` for the newer easing in data packs; omitting it retains the 0.3 curve for save compatibility.
 
 Server `generator-settings` is not wired to these continent controls. Use the world editor or a world-preset data pack. Adding the mod to an existing ordinary save does not convert that save's generator.
 
