@@ -79,9 +79,9 @@ public final class ContinentChunkGenerator extends NoiseBasedChunkGenerator {
         NoiseRouter bounded = new NoiseRouter(r.barrierNoise(), r.fluidLevelFloodednessNoise(), r.fluidLevelSpreadNoise(),
                 r.lavaNoise(), temperature, r.vegetation(), continents, r.erosion(), r.depth(), r.ridges(),
                 options.isLegacy() ? new IslandDensity(r.initialDensityWithoutJaggedness(), shape, IslandDensity.Kind.FLOOR, base.seaLevel(), options.oceanDepth())
-                        : r.initialDensityWithoutJaggedness(),
+                        : new OceanBoundaryDensity(r.initialDensityWithoutJaggedness(), shape, base.seaLevel()),
                 options.isLegacy() ? new IslandDensity(r.finalDensity(), shape, IslandDensity.Kind.FLOOR, base.seaLevel(), options.oceanDepth())
-                        : r.finalDensity(),
+                        : new OceanBoundaryDensity(r.finalDensity(), shape, base.seaLevel()),
                 r.veinToggle(), r.veinRidged(), r.veinGap());
         return new NoiseGeneratorSettings(base.noiseSettings(), base.defaultBlock(), base.defaultFluid(), bounded,
                 base.surfaceRule(), base.spawnTarget(), base.seaLevel(), base.disableMobGeneration(),

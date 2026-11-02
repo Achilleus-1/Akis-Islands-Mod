@@ -24,6 +24,47 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @GameTestHolder(IslandsMod.ID)
 @PrefixGameTestTemplate(false)
 public final class WorldgenTests {
+    @GameTest(template = "empty", timeoutTicks = 1200)
+    public static void previewOceanStaysOceanNearFiveThousandBlockBoundary(GameTestHelper helper) {
+        var registries = helper.getLevel().registryAccess();
+        var preset = registries.registryOrThrow(Registries.WORLD_PRESET)
+                .get(net.minecraft.resources.ResourceLocation.withDefaultNamespace("normal"));
+        var original = (NoiseBasedChunkGenerator) preset.createWorldDimensions().overworld();
+        int samples = 0;
+        for (var layout : ContinentSettings.Layout.values()) {
+            var settings = new ContinentSettings(layout, 5000, layout == ContinentSettings.Layout.MIXED ? 5 : 3);
+            var generator = new ContinentChunkGenerator(original.getBiomeSource(), original.generatorSettings(), settings, 1234567);
+            var shape = new dev.aki.islands.world.ContinentShape(settings, 1234567);
+            var random = RandomState.create(generator.generatorSettings().value(), registries.lookupOrThrow(Registries.NOISE), 8675309);
+            for (int x = 3200; x <= 7000; x += 64) for (int z = -7000; z <= -3200; z += 64) {
+                if (shape.landWeight(x, z) != 0) continue;
+                for (int y : new int[]{generator.getSeaLevel(), 96, 160}) {
+                    double density = random.router().finalDensity().compute(new DensityFunction.SinglePointContext(x, y, z));
+                    helper.assertTrue(density <= 0, "Unplanned terrain: " + layout + " at " + x + "," + y + "," + z + " density=" + density);
+                }
+                samples++;
+            }
+        }
+        // Model a terrain pack that adds a land branch after continentalness has been resolved.
+        // Continentalness-only masking cannot suppress this branch; test the real noise-column path too.
+        var source = original.generatorSettings().value();
+        var r = source.noiseRouter();
+        var plateau = DensityFunctions.max(r.finalDensity(), DensityFunctions.yClampedGradient(80, 96, .3, -.3));
+        var independent = withRouter(source, new NoiseRouter(r.barrierNoise(), r.fluidLevelFloodednessNoise(),
+                r.fluidLevelSpreadNoise(), r.lavaNoise(), r.temperature(), r.vegetation(), r.continents(), r.erosion(),
+                r.depth(), r.ridges(), r.initialDensityWithoutJaggedness(), plateau, r.veinToggle(), r.veinRidged(), r.veinGap()));
+        var mixed = new ContinentSettings(ContinentSettings.Layout.MIXED, 5000, 5);
+        var guarded = new ContinentChunkGenerator(original.getBiomeSource(), net.minecraft.core.Holder.direct(independent), mixed, 1234567);
+        var state = RandomState.create(guarded.generatorSettings().value(), registries.lookupOrThrow(Registries.NOISE), 8675309);
+        int oceanHeight = guarded.getBaseHeight(4700, -5000, Heightmap.Types.OCEAN_FLOOR_WG, helper.getLevel(), state);
+        helper.assertTrue(oceanHeight < guarded.getSeaLevel(), "Independent terrain escaped the boundary in a real noise column: " + oceanHeight);
+        var nativeState = RandomState.create(independent, registries.lookupOrThrow(Registries.NOISE), 8675309);
+        helper.assertTrue(nativeState.router().finalDensity().compute(new DensityFunction.SinglePointContext(4700, 64, -5000)) > 0,
+                "Independent-terrain regression must actually add land before the boundary is applied");
+        com.mojang.logging.LogUtils.getLogger().info("Preview ocean boundary: checked {} ocean columns across all layouts", samples);
+        helper.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 200)
     public static void generatorPersistenceAndTerrain(GameTestHelper helper) {
         var registries = helper.getLevel().registryAccess();

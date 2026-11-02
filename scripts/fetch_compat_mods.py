@@ -17,7 +17,7 @@ PROJECTS = ["terralith", "biolith", "biomes-o-plenty", "integrated-villages", "u
             "supplementaries", "integrated-api", "create"]
 
 def get(url):
-    request = urllib.request.Request(url, headers={"User-Agent": "AkisIslands/0.4.0 (local compatibility testing)"})
+    request = urllib.request.Request(url, headers={"User-Agent": "AkisIslands/0.4.1 (local compatibility testing)"})
     with urllib.request.urlopen(request, timeout=60) as response:
         return response.read()
 

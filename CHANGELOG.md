@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.1-alpha — 2026-11-02
+
+- Enforced the preview's ocean boundary after final terrain density evaluation, suppressing unplanned above-water noise terrain even when a pack adds terrain independently of continentalness.
+- Preserved inland terrain, negative density, deeper seabed variation, saved shape choices, climate settings, and the normal feature/structure stages.
+- Added boundary regressions for all four layouts, Mixed continents with five landmasses at radius 5,000, an independent terrain branch, and complete modded chunks around the reported outskirts.
+- Applied the correction to newly generated chunks; existing saved terrain is not erased.
+
 ## 0.4.0-alpha — 2026-11-01
 
 - Added Mixed continents: 2–6 large landmasses with randomized satellite islands, occasional land bridges, coves, and peninsulas.

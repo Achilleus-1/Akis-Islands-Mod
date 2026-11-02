@@ -8,7 +8,7 @@
         "layout_seed": 1234567,
         "latitude_climate": { "enabled": true, "smooth_transitions": true },
         "settings": "minecraft:overworld",
-        "islands": { "format": 2, "layout": "MIXED", "radius": 2000, "count": 3 },
+        "islands": { "format": 2, "layout": "MIXED", "radius": 5000, "count": 5 },
         "biome_source": { "type": "minecraft:multi_noise", "preset": "minecraft:overworld" }
       }
     },

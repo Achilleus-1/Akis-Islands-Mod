@@ -7,7 +7,7 @@ NeoForge 21.2 targets Minecraft 1.21.2. This project uses **21.1.265**, the matc
 ## Try it
 
 1. Build with `./gradlew build` (`.\gradlew.bat build` in PowerShell), using Java 21.
-2. Install `build/libs/akis-islands-mod-1.21.1-0.4.0-alpha.jar` in the client and server `mods` folders, replacing the previous version.
+2. Install `build/libs/akis-islands-mod-1.21.1-0.4.1-alpha.jar` in the client and server `mods` folders, replacing the previous version.
 3. Open **Singleplayer → Create New World → World** and select **World Type: Aki's Islands**.
 4. Use the native **Customize** button beside World Type. Choose **One continent**, **Attached continents**, **Islands**, or **Mixed continents**, then set size/count or click **Randomize Shape**.
 5. Choose **Apply layout** and create the world. **Cancel** leaves the applied layout unchanged. Select Minecraft's ordinary world type to use ordinary world generation.
@@ -34,7 +34,11 @@ Version 0.1.0 saves retain their original generation behavior, including previou
 
 ## Compatibility design and limits
 
-New layouts change **continentalness**, the large-scale land/ocean signal. Minecraft and the installed mods determine the terrain heights, ocean floor, coast surfaces, mountains, rivers, caves, ores, biomes, and structures using their normal generation rules. There is no custom ocean-floor cap or density flattening. Climate stays native unless the optional latitude system is enabled.
+New layouts change **continentalness**, the large-scale land/ocean signal. Minecraft and the installed mods determine the terrain heights, ocean floor, coast surfaces, mountains, rivers, caves, ores, biomes, and structures using their normal generation rules. Climate stays native unless the optional latitude system is enabled.
+
+Version 0.4.1 also enforces the coastline plan at the end of terrain density evaluation. This catches terrain branches that can add land independently of continentalness. The safeguard removes positive terrain density near the ocean surface outside the planned shore, easing in over the top 16 blocks below sea level. Inland density, existing negative density (water/air/caves), and all density more than 16 blocks below sea level remain unchanged. The native seabed keeps its deeper variation, and no ocean-depth control is added. Original format-1 worlds retain their original legacy generation.
+
+This correction applies to newly generated chunks in worlds using the current generator. Already generated unexpected land remains stored in the save. The update does not delete chunks or retrofit existing terrain. Use a new test world to check the corrected boundary across the entire layout.
 
 The generator extends Minecraft's `NoiseBasedChunkGenerator` and keeps the active **biome source, height range, surface rules, carvers, aquifers, ores, features, sea level, and structure stages**. It adapts continentalness references inside the pack's terrain splines as well as its biome router. It does not ship an overriding `minecraft:overworld` noise-settings JSON. There are no mixins; one access transformer exposes the standard shifted-noise node for inspection.
 

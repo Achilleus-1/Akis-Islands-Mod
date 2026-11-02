@@ -51,6 +51,26 @@ public final class FullChunkTests {
             if (!ocean.getFluidState(new BlockPos(8192 + x, sea - 5, 8192 + z)).isEmpty()) waterColumns++;
         }
         helper.assertTrue(waterColumns > 240, "Expected ocean water in distant full chunk; got " + waterColumns);
+        // Probe the reported outskirts after all chunk stages, not just the raw density router.
+        for (int[] point : new int[][]{{4700, -5000}, {6000, -6000}, {-6000, -6000}, {-6000, 6000}}) {
+            int cx = Math.floorDiv(point[0], 16), cz = Math.floorDiv(point[1], 16);
+            boolean plannedOcean = true;
+            for (int x = 0; x < 16; x++) for (int z = 0; z < 16; z++) {
+                if (shape.landWeight(cx * 16 + x, cz * 16 + z) != 0) plannedOcean = false;
+            }
+            if (!plannedOcean) continue;
+            var completed = level.getChunk(cx, cz);
+            int aboveWater = 0;
+            int rawAboveWater = 0;
+            for (int x = 0; x < 16; x++) for (int z = 0; z < 16; z++) {
+                if (completed.getHeight(Heightmap.Types.OCEAN_FLOOR, x, z) >= sea) aboveWater++;
+                if (generator.getBaseHeight(cx * 16 + x, cz * 16 + z, Heightmap.Types.OCEAN_FLOOR_WG, level, random) > sea) rawAboveWater++;
+            }
+            LogUtils.getLogger().info("Outskirts ocean check: ({},{}), raw land columns={}, completed land columns={}",
+                    point[0], point[1], rawAboveWater, aboveWater);
+            helper.assertTrue(aboveWater == 0, "Unplanned land after full generation at " + point[0] + "," + point[1]
+                    + ": raw=" + rawAboveWater + ", completed=" + aboveWater);
+        }
         helper.succeed();
     }
 }
