@@ -39,6 +39,11 @@ public final class LatitudeClimateTests {
         var encoded = ChunkGenerator.CODEC.encodeStart(ops, enabled).getOrThrow();
         var decoded = (ContinentChunkGenerator) ChunkGenerator.CODEC.parse(ops, encoded).getOrThrow();
         helper.assertTrue(decoded.latitudeClimate().equals(configured), "Latitude settings did not survive world serialization");
+        var wideSettings = LatitudeClimateSettings.Preset.WIDE_EXTREMES.apply(true);
+        var wide = new ContinentChunkGenerator(base.getBiomeSource(), base.generatorSettings(), layout, 1234567, wideSettings);
+        var wideDecoded = (ContinentChunkGenerator) ChunkGenerator.CODEC.parse(ops,
+                ChunkGenerator.CODEC.encodeStart(ops, wide).getOrThrow()).getOrThrow();
+        helper.assertTrue(wideDecoded.latitudeClimate().equals(wideSettings), "Narrow temperate middle did not survive world serialization");
         helper.assertTrue(decoded.islands().equals(layout), "Mixed layout did not survive world serialization");
         var legacyCurve = encoded.getAsJsonObject().deepCopy();
         legacyCurve.getAsJsonObject("latitude_climate").remove("smooth_transitions");
@@ -52,6 +57,7 @@ public final class LatitudeClimateTests {
         helper.assertTrue(enabled.getBiomeSource() == base.getBiomeSource(), "Latitude climate replaced the biome source");
         var a = RandomState.create(disabled.generatorSettings().value(), registries.lookupOrThrow(Registries.NOISE), 8675309);
         var b = RandomState.create(decoded.generatorSettings().value(), registries.lookupOrThrow(Registries.NOISE), 8675309);
+        var c = RandomState.create(wideDecoded.generatorSettings().value(), registries.lookupOrThrow(Registries.NOISE), 8675309);
         var shape = new ContinentShape(layout, 1234567);
         int north = -(int) Math.ceil(shape.northExtent() * 1.2), south = (int) Math.ceil(shape.southExtent() * 1.2);
         for (int x : new int[]{-512, 0, 512}) for (int z : new int[]{north, 0, south}) {
@@ -59,13 +65,26 @@ public final class LatitudeClimateTests {
                 var context = new DensityFunction.SinglePointContext(x, y, z);
                 helper.assertTrue(a.router().finalDensity().compute(context) == b.router().finalDensity().compute(context), "Latitude changed terrain density");
                 helper.assertTrue(a.router().vegetation().compute(context) == b.router().vegetation().compute(context), "Latitude changed humidity");
+                helper.assertTrue(a.router().finalDensity().compute(context) == c.router().finalDensity().compute(context), "Wide extremes changed terrain density");
+                helper.assertTrue(a.router().vegetation().compute(context) == c.router().vegetation().compute(context), "Wide extremes changed humidity");
                 if (y <= 0 || ClimateCompatibility.hasExternalController()) {
                     helper.assertTrue(a.router().temperature().compute(context) == b.router().temperature().compute(context),
                             "Latitude changed underground or externally controlled climate");
+                    helper.assertTrue(a.router().temperature().compute(context) == c.router().temperature().compute(context),
+                            "Wide extremes changed underground or externally controlled climate");
                 }
             }
         }
         if (!ClimateCompatibility.hasExternalController()) {
+            int nearNorth = -(int) Math.round(shape.northExtent() * .75), nearSouth = (int) Math.round(shape.southExtent() * .75);
+            for (int z : new int[]{nearNorth, nearSouth}) {
+                var context = new DensityFunction.SinglePointContext(0, 64, z);
+                double previous = b.router().temperature().compute(context), expanded = c.router().temperature().compute(context);
+                helper.assertTrue(z < 0 ? expanded < previous - .2 : expanded > previous + .2,
+                        "Wide extremes did not expand cold/hot bands inward");
+            }
+            LogUtils.getLogger().info("Wide extremes native biome selection at 75% latitude: north={}, south={}",
+                    biome(wideDecoded, c, 0, nearNorth), biome(wideDecoded, c, 0, nearSouth));
             Set<ResourceLocation> cold = new HashSet<>(), middle = new HashSet<>(), hot = new HashSet<>();
             for (int x = -1024; x <= 1024; x += 64) {
                 cold.add(biome(enabled, b, x, north));

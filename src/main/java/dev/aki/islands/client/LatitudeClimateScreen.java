@@ -62,7 +62,8 @@ final class LatitudeClimateScreen extends Screen {
             syncValues();
         }).bounds(x + half + 8, 60, w - half - 8, 20)
                 .tooltip(Tooltip.create(Component.translatable("akis_islands.climate.reset.tip"))).build());
-        slider("middle", x, 90, w, 50, 90, () -> draft.temperatePercent(),
+        slider("middle", x, 90, w, LatitudeClimateSettings.MIN_TEMPERATE_PERCENT,
+                LatitudeClimateSettings.MAX_TEMPERATE_PERCENT, () -> draft.temperatePercent(),
                 value -> draft = new LatitudeClimateSettings(draft.enabled(), value, draft.strengthPercent(), draft.transitionPercent()));
         slider("strength", x, 114, w, 0, 100, () -> draft.strengthPercent(),
                 value -> draft = new LatitudeClimateSettings(draft.enabled(), draft.temperatePercent(), value, draft.transitionPercent()));

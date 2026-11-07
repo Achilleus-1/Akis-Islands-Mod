@@ -81,7 +81,7 @@ class LatitudeClimateTest {
         assertEquals(settings, LatitudeClimateSettings.CODEC.parse(JsonOps.INSTANCE, json).getOrThrow());
         assertEquals(new LatitudeClimateSettings(false, 65, 85, 100, false),
                 LatitudeClimateSettings.CODEC.parse(JsonOps.INSTANCE, JsonParser.parseString("{}")).getOrThrow());
-        for (String invalid : new String[]{"{\"temperate_percent\":49}", "{\"temperate_percent\":91}",
+        for (String invalid : new String[]{"{\"temperate_percent\":9}", "{\"temperate_percent\":91}",
                 "{\"strength_percent\":101}", "{\"transition_percent\":49}", "{\"transition_percent\":201}"}) {
             assertTrue(LatitudeClimateSettings.CODEC.parse(JsonOps.INSTANCE, JsonParser.parseString(invalid)).error().isPresent());
         }
@@ -122,5 +122,47 @@ class LatitudeClimateTest {
         assertEquals(50, balanced.temperatePercent());
         assertEquals(.12, climate(balanced).baseTemperature(500), 1e-12);
         assertTrue(climate(balanced).baseTemperature(750) > .12);
+    }
+
+    @Test void narrowMiddleSettingsPersistAndKeepBothCurvesSmoothAndMonotonic() {
+        for (int middle : new int[]{10, 25, 49, 50, 65, 90}) for (boolean smooth : new boolean[]{false, true}) {
+            var settings = new LatitudeClimateSettings(true, middle, 90, 75, smooth);
+            var encoded = LatitudeClimateSettings.CODEC.encodeStart(JsonOps.INSTANCE, settings).getOrThrow();
+            assertEquals(settings, LatitudeClimateSettings.CODEC.parse(JsonOps.INSTANCE, encoded).getOrThrow());
+            var profile = climate(settings);
+            double previous = -Double.MAX_VALUE;
+            for (int z = -2000; z <= 2000; z++) {
+                double current = profile.temperature(0, z, 64);
+                assertTrue(Double.isFinite(current));
+                assertTrue(current + 1e-12 >= previous, "Narrow climate reversed at " + z);
+                previous = current;
+            }
+            assertEquals(0, profile.temperature(0, 0, 64), 0);
+            double join = middle * 10.0;
+            assertEquals(profile.baseTemperature(join - 1e-5), profile.baseTemperature(join + 1e-5), 1e-6);
+        }
+        assertThrows(IllegalArgumentException.class, () -> new LatitudeClimateSettings(true, 9, 90, 75));
+        assertThrows(IllegalArgumentException.class, () -> new LatitudeClimateSettings(true, 91, 90, 75));
+    }
+
+    @Test void wideExtremesGiveStrongColdAndHeatMoreRoomThanExistingPresets() {
+        var settings = LatitudeClimateSettings.Preset.WIDE_EXTREMES.apply(true);
+        var wider = climate(settings);
+        var original = climate(LatitudeClimateSettings.DEFAULT);
+        var balanced = climate(LatitudeClimateSettings.Preset.BALANCED.apply(true));
+        assertEquals(25, settings.temperatePercent());
+        assertTrue(Math.abs(wider.baseTemperature(250)) <= .1200001);
+        assertTrue(wider.temperature(0, -750, 64) < -.7);
+        assertTrue(wider.temperature(0, 750, 64) > .7);
+        int oldExtremeColumns = 0, balancedExtremeColumns = 0, newExtremeColumns = 0;
+        for (int z = -1000; z <= 1000; z++) {
+            if (Math.abs(original.temperature(0, z, 64)) >= .6) oldExtremeColumns++;
+            if (Math.abs(balanced.temperature(0, z, 64)) >= .6) balancedExtremeColumns++;
+            if (Math.abs(wider.temperature(0, z, 64)) >= .6) newExtremeColumns++;
+        }
+        assertTrue(newExtremeColumns > oldExtremeColumns * 2, "Preset must materially expand strong extremes");
+        assertTrue(newExtremeColumns > balancedExtremeColumns);
+        assertEquals(.75, wider.temperature(.75, 900, 0), 0);
+        assertEquals(LatitudeClimateSettings.DEFAULT, settings.resetValues());
     }
 }

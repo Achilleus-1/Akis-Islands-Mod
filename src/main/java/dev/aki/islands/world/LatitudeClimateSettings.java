@@ -6,11 +6,13 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 /** World-local climate controls. Old worlds decode with the feature disabled. */
 public record LatitudeClimateSettings(boolean enabled, int temperatePercent, int strengthPercent, int transitionPercent,
                                       boolean smoothTransitions) {
+    public static final int MIN_TEMPERATE_PERCENT = 10;
+    public static final int MAX_TEMPERATE_PERCENT = 90;
     public static final LatitudeClimateSettings DISABLED = new LatitudeClimateSettings(false, 65, 85, 100);
     public static final LatitudeClimateSettings DEFAULT = DISABLED.withEnabled(true);
     public static final Codec<LatitudeClimateSettings> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Codec.BOOL.optionalFieldOf("enabled", false).forGetter(LatitudeClimateSettings::enabled),
-            Codec.intRange(50, 90).optionalFieldOf("temperate_percent", 65).forGetter(LatitudeClimateSettings::temperatePercent),
+            Codec.intRange(MIN_TEMPERATE_PERCENT, MAX_TEMPERATE_PERCENT).optionalFieldOf("temperate_percent", 65).forGetter(LatitudeClimateSettings::temperatePercent),
             Codec.intRange(0, 100).optionalFieldOf("strength_percent", 85).forGetter(LatitudeClimateSettings::strengthPercent),
             Codec.intRange(50, 200).optionalFieldOf("transition_percent", 100).forGetter(LatitudeClimateSettings::transitionPercent),
             // Absent in 0.3 saves: preserve their original cubic curve to avoid new-chunk climate seams.
@@ -22,7 +24,8 @@ public record LatitudeClimateSettings(boolean enabled, int temperatePercent, int
     }
 
     public enum Preset {
-        DEFAULT(65, 85, 100), BALANCED(50, 85, 100), TEMPERATE(80, 85, 100), GENTLE(65, 65, 150);
+        DEFAULT(65, 85, 100), BALANCED(50, 85, 100), TEMPERATE(80, 85, 100), GENTLE(65, 65, 150),
+        WIDE_EXTREMES(25, 90, 75);
 
         private final int middle, strength, transition;
         Preset(int middle, int strength, int transition) {
@@ -40,7 +43,7 @@ public record LatitudeClimateSettings(boolean enabled, int temperatePercent, int
     }
 
     public LatitudeClimateSettings {
-        if (temperatePercent < 50 || temperatePercent > 90 || strengthPercent < 0 || strengthPercent > 100
+        if (temperatePercent < MIN_TEMPERATE_PERCENT || temperatePercent > MAX_TEMPERATE_PERCENT || strengthPercent < 0 || strengthPercent > 100
                 || transitionPercent < 50 || transitionPercent > 200) {
             throw new IllegalArgumentException("Latitude climate settings are outside their supported ranges");
         }

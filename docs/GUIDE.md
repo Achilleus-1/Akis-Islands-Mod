@@ -7,7 +7,7 @@ NeoForge 21.2 targets Minecraft 1.21.2. This project uses **21.1.265**, the matc
 ## Try it
 
 1. Build with `./gradlew build` (`.\gradlew.bat build` in PowerShell), using Java 21.
-2. Install `build/libs/akis-islands-mod-1.21.1-0.4.1-alpha.jar` in the client and server `mods` folders, replacing the previous version.
+2. Install `build/libs/akis-islands-mod-1.21.1-0.5.0-alpha.jar` in the client and server `mods` folders, replacing the previous version.
 3. Open **Singleplayer → Create New World → World** and select **World Type: Aki's Islands**.
 4. Use the native **Customize** button beside World Type. Choose **One continent**, **Attached continents**, **Islands**, or **Mixed continents**, then set size/count or click **Randomize Shape**.
 5. Choose **Apply layout** and create the world. **Cancel** leaves the applied layout unchanged. Select Minecraft's ordinary world type to use ordinary world generation.
@@ -54,7 +54,7 @@ Open **Customize → Climate**, enable **North to South**, adjust the controls, 
 
 | Control | Default | Range and effect |
 | --- | --- | --- |
-| Normal middle | 65% | 50-90% of the planned north-south span. A broad temperate center around Z=0, larger than either extreme. |
+| Normal middle | 65% | 10-90% of the planned north-south span. Lower values shrink the center and give the cold north and hot south more room; the default keeps a broad center. |
 | Band strength | 85% | 0-100%. Blends between native temperature and the latitude profile, retaining local variation. Zero is exactly native temperature. |
 | Transition length | 100% | 50-200%. Controls how far beyond the normal middle the gradual change to cold/hot takes. It does not shrink the middle. |
 
@@ -66,8 +66,13 @@ Click **Preset** to cycle through the starting values below. You can then adjust
 | Balanced | 50% | 25% / 25% | 85% | 100% |
 | Temperate | 80% | 10% / 10% | 85% | 100% |
 | Gentle | 65% | 17.5% / 17.5% | 65% | 150% |
+| Wide extremes | 25% | 37.5% / 37.5% | 90% | 75% |
 
 These are planned latitude proportions, not measured biome or land-area percentages. Each hemisphere fits its own coastline extent; asymmetric shapes, gradual transitions, native variation, and biome rules affect the final distribution.
+
+To expand the frozen north and hot south, select **Wide extremes**. Its shorter transition reaches strong temperatures before the outer coast, and its stronger bands give latitude more influence. For a custom result, reduce **Normal middle** as far as 10% and adjust **Transition length**: lower transition values reach the extremes sooner, while higher values keep the change spread over more distance. The easing remains smooth. Desert coverage also depends on humidity; a hot area can instead select a wet warm biome under the pack's native rules.
+
+The default remains 65% / 85% / 100%, and existing saved values and presets retain their behavior when upgrading. Selecting Wide extremes or editing the middle width is an explicit world-creation choice. Values below 50% require version 0.5.0 or newer on clients and servers.
 
 North (-Z) becomes colder and south (+Z) becomes hotter. The middle remains temperate with gentle variation; it is not a constant temperature. Smooth transitions replace hard climate boundaries. The profile fits each hemisphere's actual planned land extent, so thin or rotated island groups still receive useful bands. Longer transitions can place the strongest extremes beyond the shore. The preview colors indicate the planned climate, not exact biomes.
 

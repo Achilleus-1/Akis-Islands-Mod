@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0-alpha — 2026-11-07
+
+- Expanded Normal middle from 50–90% to 10–90%, allowing a much narrower temperate center.
+- Added Wide extremes: 25% middle, 90% band strength, and 75% transition length, giving strong cold/hot temperatures more room before the coast.
+- Updated climate tooltips and documentation to explain middle width, earlier transitions, and biome coverage.
+- Preserved default values, existing presets, saved climate curves, and Natural Temperature delegation.
+
 ## 0.4.1-alpha — 2026-11-02
 
 - Enforced the preview's ocean boundary after final terrain density evaluation, suppressing unplanned above-water noise terrain even when a pack adds terrain independently of continentalness.

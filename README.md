@@ -10,13 +10,13 @@ Unofficial Minecraft mod; not approved by or affiliated with Mojang or Microsoft
 
 Create one continent, attached continents, an island group, or mixed continents surrounded by ocean. Mixed continents combine large landmasses with randomized satellite islands, occasional land bridges, coves, and peninsulas. Preview the planned coastline before creating your world, randomize its shape, and optionally add gradual cold-north/temperate-middle/hot-south climate bands.
 
-**Alpha · 0.4.1-alpha.** Latitude climate starts **off**. Compatibility checks pass with the documented mod profiles; individual village placement, long stream routes, and the new climate editor's visual click-through remain unverified. See [compatibility and verification limits](docs/COMPATIBILITY.md).
+**Alpha · 0.5.0-alpha.** Latitude climate starts **off**. Compatibility checks pass with the documented mod profiles; individual village placement, long stream routes, and the new climate editor's visual click-through remain unverified. See [compatibility and verification limits](docs/COMPATIBILITY.md).
 
 ## Installation
 
 For **Minecraft 1.21.1**, **NeoForge 21.1.265 or newer in the 21.1 series**, and **Java 21**.
 
-1. Download `akis-islands-mod-1.21.1-0.4.1-alpha.jar` from the [alpha release](https://github.com/Achilleus-1/Akis-Islands-Mod/releases/tag/v0.4.1-alpha).
+1. Download `akis-islands-mod-1.21.1-0.5.0-alpha.jar` from the [alpha release](https://github.com/Achilleus-1/Akis-Islands-Mod/releases/tag/v0.5.0-alpha).
 2. Place it in your NeoForge profile's `mods` folder and remove older Aki's Islands jars. For multiplayer, install the same version on the server and participating clients.
 3. Open **Singleplayer → Create New World → World**, then select **World Type: Aki's Islands**.
 4. Use the native **Customize** button beside World Type. Choose your layout, size, and landmass count, then **Apply layout**.
@@ -32,15 +32,17 @@ The mod has no required third-party mod dependencies. Keep the dependencies requ
 | Landmasses | 2–6 for attached continents or islands |
 | Randomize Shape | Another coastline without changing Minecraft's terrain seed |
 | Climate | Optional latitude editor; **off** by default |
-| Normal middle | **65%** of the planned north–south span; adjustable 50–90% |
+| Normal middle | **65%** of the planned north–south span; adjustable 10–90% |
 | Band strength | **85%** by default; adjustable 0–100% |
 | Transition length | **100%** by default; adjustable 50–200% |
-| Climate presets | Default, Balanced, Temperate, and Gentle; sliders remain adjustable |
+| Climate presets | Default, Balanced, Temperate, Gentle, and Wide extremes; sliders remain adjustable |
 | Reset to default | Restores 65% / 85% / 100%; keeps climate on/off unchanged |
 
 North is -Z and south is +Z. Enabled latitude climate retains local variation, leaves humidity native, and uses the existing vanilla/modded biome selector. The normal middle stays broad while the ends gradually become colder or hotter. Climate settings and shape choices save per world.
 
 The **Balanced** preset uses a 50% moderate middle and roughly 25% cold / 25% hot ends. Preset percentages describe planned latitude spans; they do not guarantee exact biome areas. New climate settings use smoother easing at the band joins. Existing worlds retain their previous coastlines and climate curve unless their climate values are edited.
+
+For larger cold/hot areas, choose **Wide extremes** in the climate editor: **25% middle, 90% strength, 75% transition length**. This narrows the temperate center and reaches strong temperatures sooner. The Normal middle slider can reduce the center to **10%** for more customization. Humidity and biome placement rules still determine which cold or hot biomes appear.
 
 The preview is a coastline/climate plan, not a rendered terrain or structure map. Rivers, lakes, mountains, shore details, features, and structures follow the active generator's rules. Other mods can still place bridges, structures, or above-water features at sea.
 
