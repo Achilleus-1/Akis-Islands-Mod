@@ -1,14 +1,21 @@
 package dev.aki.islands.world;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SplittableRandom;
 
 /** Pure, thread-safe shape shared by generation and preview. */
 public final class ContinentShape {
+    public static final Codec<ContinentShape> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+            ContinentSettings.CODEC.fieldOf("settings").forGetter(shape -> shape.settings),
+            Codec.LONG.fieldOf("seed").forGetter(shape -> shape.seed)
+    ).apply(instance, ContinentShape::new));
     private record Lobe(double x, double z, double rx, double rz, double angle, double phase) {}
     private record Bridge(double x, double z, double width) {}
     private final ContinentSettings settings;
+    private final long seed;
     private final List<Lobe> lobes;
     private final List<Lobe> coves;
     private final List<Bridge> bridges;
@@ -23,6 +30,7 @@ public final class ContinentShape {
     private final ThreadLocal<ColumnCache> columns = ThreadLocal.withInitial(ColumnCache::new);
     public ContinentShape(ContinentSettings settings, long seed) {
         this.settings = settings;
+        this.seed = seed;
         SplittableRandom random = new SplittableRandom(seed);
         List<Lobe> generated = new ArrayList<>();
         List<Lobe> carved = new ArrayList<>();

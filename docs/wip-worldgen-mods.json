@@ -1,0 +1,1773 @@
+{
+  "date": "2026-11-13",
+  "akis_islands_version": "0.5.1-alpha",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.265",
+  "java": 21,
+  "source_active_jar_count": 314,
+  "isolated_dependency_jar_count": 103,
+  "scope": "Normal dedicated server, generation/resource mods plus dependencies and generation optimizers. This is not a full 314-jar client test.",
+  "world": {
+    "seed": 0,
+    "layout_seed": 1234567,
+    "layout": "MIXED",
+    "radius": 5000,
+    "count": 5,
+    "latitude_climate": {
+      "enabled": true,
+      "normal_middle": 65,
+      "strength": 85,
+      "transition": 100,
+      "smooth_transitions": true
+    },
+    "generate_structures": true
+  },
+  "streams": {
+    "version": "2.17.3",
+    "terrainAccuracyLevel": "MEDIUM",
+    "watershedSize": "BLOCKS_768",
+    "terrainFit": -1,
+    "adaptiveGridRead": true,
+    "fastTerrainEstimate": true,
+    "legacyStreamShaping": false,
+    "streamDimensions": "minecraft:overworld",
+    "observed_fast_terrain_mode": "OFF"
+  },
+  "artifacts": [
+    {
+      "file": "aether-1.21.1-1.5.10-neoforge.jar",
+      "mods": [
+        {
+          "id": "aether",
+          "version": "1.5.10"
+        }
+      ],
+      "sha1": "7554b1dd391b8dd06a810918ec705d0493f693eb",
+      "sha512": "4b004daed6d09362646e204f068dee28e80523e705e862778036c492775672071ca9cc95f9574a842f34d2e058b46138c6154c6a2f251dcdad7a8803907dad46",
+      "generation_resources": {
+        "dimension_type": 1,
+        "worldgen/structure": 4,
+        "worldgen/placed_feature": 26,
+        "worldgen/structure_set": 3,
+        "worldgen/processor_list": 9,
+        "worldgen/biome": 4,
+        "worldgen/noise_settings": 1,
+        "worldgen/noise": 2,
+        "worldgen/density_function": 1,
+        "worldgen/configured_feature": 25,
+        "dimension": 1
+      },
+      "release_url": "https://modrinth.com/mod/YhmgMVyu/version/K5X5qMwG",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "Amplified_Nether_26.2_v1.2.16.jar",
+      "mods": [
+        {
+          "id": "amplified_nether",
+          "version": "1.2.16"
+        }
+      ],
+      "sha1": "66c053e74379607c614ad252b8f838d3a2533e32",
+      "sha512": "1d778f0df10a97b967dea225b7e30e2699a3cd90682fcc1035eb386c6620a682104ac88a5bc24ea87b61ba8b0098a824008a2a8c4f3d3b42f809666f588f9679",
+      "generation_resources": {
+        "worldgen/placed_feature": 21,
+        "worldgen/noise_settings": 1,
+        "worldgen/configured_feature": 26,
+        "worldgen/configured_carver": 1,
+        "worldgen/density_function": 19,
+        "worldgen/noise": 36
+      },
+      "release_url": "https://modrinth.com/mod/wXiGiyGX/version/agiByWs3",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "architectury-13.0.11-neoforge.jar",
+      "mods": [
+        {
+          "id": "architectury",
+          "version": "13.0.11"
+        }
+      ],
+      "sha1": "008656a0702801174b8ec245ed7aad1921d6e9f1",
+      "sha512": "d9f7c3bb8162577dfb461ffdf04bd6a3563c7586934a0e2a744c14421beffb8286f0d88d4c758317003f20f99fe8072a39b9d675af061e036970d36db36027f0",
+      "generation_resources": {
+        "neoforge/biome_modifier": 1
+      },
+      "release_url": "https://modrinth.com/mod/lhGA9TYQ/version/1IiqEQGl",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "async-locator-refined-neoforge-1.21.1-1.6.0.jar",
+      "mods": [
+        {
+          "id": "asynclocator",
+          "version": "1.6.0"
+        }
+      ],
+      "sha1": "287ec5c76bf9f7f8493e789f70759ab993784f5e",
+      "sha512": "5fca80e53239f8eb54943d790e20cbf64fc43dbf495fc227d2dda2cd65981e2df2dfea5ec5800aaa0a0d84f91915a635d2a6e492861c47aab020f74f64fb0b44",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "balm-neoforge-1.21.1-21.0.67.jar",
+      "mods": [
+        {
+          "id": "balm",
+          "version": "21.0.67"
+        }
+      ],
+      "sha1": "68c95ca8a6a87d26199d43ff6978bc94949329e3",
+      "sha512": "ad4f4df829b1195446486df818c2c1f0bf6738cb1b30cfdbf9eae4855ce62a66b00f2dc5e0a87409f25ce4eba9bd5c94e1b10d1940af451d5ef7dd7f4b3d8ebd",
+      "generation_resources": {
+        "neoforge/biome_modifier": 1
+      },
+      "release_url": "https://modrinth.com/mod/MBAkmtvl/version/gMedgtzL",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "better_lib-neoforge-1.21.1-1.0.113.jar",
+      "mods": [
+        {
+          "id": "better_lib",
+          "version": "1.0.113"
+        }
+      ],
+      "sha1": "e998bbb4ac83da51e7d0a17fe4fedaca7463eeab",
+      "sha512": "21f6fa0d15c603a44468da04d5490910d706dea2553782a2f72ab516c834d37c8774d807b60ace0362c5350b4bcb842bc5fb7beb4c5ac93e864a522f2755e91f",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "biolith-neoforge-3.0.14.jar",
+      "mods": [
+        {
+          "id": "biolith",
+          "version": "3.0.14"
+        }
+      ],
+      "sha1": "8b041bce1cd0c5f5223c285784a3e8498273d6ea",
+      "sha512": "49d225425627eca3b52514752ad297d39c571853a72f4e539c6e233a1289126fbb50593b01af2a782369e1aca55654e225ae25d494c3885baf6ed9fe212887ad",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/iGEl6Crx/version/EAjbdreT",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar",
+      "mods": [
+        {
+          "id": "biomesoplenty",
+          "version": "21.1.0.14"
+        }
+      ],
+      "sha1": "294ae397c011980623bf155f9dfce82bb81865a0",
+      "sha512": "1569d9ed5b619f99d61a7cf1b2d886b278df2905b3ce9324f8e7a17c5c960312ec681cc06f1ad96644bde2cdc60440d8be9952f0ee0f84f7937210f46fbb21d7",
+      "generation_resources": {
+        "worldgen/configured_feature": 279,
+        "worldgen/biome": 69,
+        "worldgen/placed_feature": 321,
+        "worldgen/configured_carver": 1
+      },
+      "release_url": "https://modrinth.com/mod/HXF82T3G/version/BtZKRp69",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "blossom-blade-1.3.jar",
+      "mods": [
+        {
+          "id": "mr_blossom_blade",
+          "version": "1.3"
+        }
+      ],
+      "sha1": "4bdab789fd847e96a26f305910d12d2e2a32d19d",
+      "sha512": "07b536e60b93984d937c34497c9fed5a3b6bf6a2b75b8222a4ee667a858c8d2f3026cffffa94212d61d27e2ccd666d77e504e5c487b583f034885a72624ed158",
+      "generation_resources": {
+        "worldgen/structure": 1,
+        "worldgen/structure_set": 1,
+        "worldgen/template_pool": 1
+      },
+      "release_url": "https://modrinth.com/mod/UMmSTwE0/version/k9trRweh",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "blueprint-1.21.1-8.2.0.jar",
+      "mods": [
+        {
+          "id": "blueprint",
+          "version": "8.2.0"
+        }
+      ],
+      "sha1": "b947d5faef872a3f4c856a814c994d70f2065666",
+      "sha512": "0b523c2d53a56676286ddd13adbe65b1a24f5af6040dbec6af9a38cc535b7ba2531a1879afb7a496c407683eacbfbed22701053861a5fd12271b08ac93239db4",
+      "generation_resources": {
+        "worldgen/biome": 1
+      },
+      "release_url": "https://modrinth.com/mod/VsM5EDoI/version/FHOjk8Ez",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "c2me-neoforge-mc1.21.1-0.4.0-alpha.0.124.jar",
+      "mods": [
+        {
+          "id": "c2me",
+          "version": "0.4.0-alpha.0.124+1.21.1"
+        }
+      ],
+      "sha1": "469497c209e77742a85020845a361851f14d99e2",
+      "sha512": "ad5675893a856663659b4d73285d154615e6c1924fef0f52513e3f07895ba474e3629778087aa8ec0edcfd802c21ee773f6483397bde858ff30a2b62887b208b",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/COlSi5iR/version/VACgDPOc",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "chefsdelight-1.0.6.jar",
+      "mods": [
+        {
+          "id": "chefsdelight",
+          "version": "1.0.6"
+        }
+      ],
+      "sha1": "9e5992b895dbde9f31fd2f0590dcac925adfcc55",
+      "sha512": "a9052c7343ead876fd3c772e2c6bd274e4401bdad66458667f9a9cf5ea52c2778ecbb4051a9238ab9f6430a0d83be0619240a9c6ff32732a1916bc96d82148f6",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/pvcsfne4/version/N8hZwT7r",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "cloth-config-15.0.140-neoforge.jar",
+      "mods": [
+        {
+          "id": "cloth_config",
+          "version": "15.0.140"
+        }
+      ],
+      "sha1": "c3e5733ba4503b102589a026000fd5ce0212f6f2",
+      "sha512": "aaf9b010955b8cd294e5a92f069985b18729fd5e2cf22d351f1dff9680f15488688803ec41e77e941cbde130ceb535014ca4c868047d80ab69c2d508e216654d",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "collective-1.21.1-8.86.jar",
+      "mods": [
+        {
+          "id": "collective",
+          "version": "8.86"
+        }
+      ],
+      "sha1": "91f6a5c0ea671349b710a34810160abfb5dcc4c0",
+      "sha512": "b741915a3952bfb1f83ff74a3aee84128fb0d09b8e75ff836b1820c1b2d221fd5cf4bfa91146afee02468f6a7010cf5ae2b8f64746a6fc7bfa1e27b0abc4f99a",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/e0M1UDsY/version/ry7LvdEb",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "create-1.21.1-6.0.10.jar",
+      "mods": [
+        {
+          "id": "create",
+          "version": "6.0.10"
+        }
+      ],
+      "sha1": "0e97e49837bed766e6f28a4c95b04885d6acc353",
+      "sha512": "11cc8fc049d2f67f6548c7abfada6b82a3adb5c7ca410a742de04bbca76e03862c518721b88d806f6e6d768a4d68531fdb903a85859b25d1484d550cc7bafd4b",
+      "generation_resources": {
+        "worldgen/placed_feature": 3,
+        "worldgen/configured_feature": 3,
+        "neoforge/biome_modifier": 3
+      },
+      "release_url": "https://modrinth.com/mod/LNytGWDc/version/UjX6dr61",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "create-infinite-railways-0.2.0.jar",
+      "mods": [
+        {
+          "id": "infiniterailways",
+          "version": "0.2.0"
+        }
+      ],
+      "sha1": "093ea01ce7cfa199eb264a6003794e4a9e27f311",
+      "sha512": "6590f5e7075eeb34c12580bb8b72ae00712b2c069844173b44b6309a132cd6b800b304fa6c87d1a52255639de17b6bbb6e9f0c525c4589baea95725dcbbb7b9a",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "create-new-age-1.2.0+neoforge-mc1.21.1.jar",
+      "mods": [
+        {
+          "id": "create_new_age",
+          "version": "1.2.0+mc1.21.1"
+        }
+      ],
+      "sha1": "849df57070ffa75c2446b9c460d03f6b49fa089e",
+      "sha512": "5075c6482b800af7044b594ad694855e7d56f386cb0354967eafe99d77e84b4e26ee7f880d287672d24d84ea8086fd074b7695e46632f32f215b31ce859ada72",
+      "generation_resources": {
+        "neoforge/biome_modifier": 2,
+        "worldgen/configured_feature": 2,
+        "worldgen/placed_feature": 2
+      },
+      "release_url": "https://modrinth.com/mod/FTeXqI9v/version/IwtuwMZy",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "createoreexcavation-1.21-1.6.8.jar",
+      "mods": [
+        {
+          "id": "createoreexcavation",
+          "version": "1.6.8"
+        }
+      ],
+      "sha1": "9a76b86ec7470d4bd7332f22d6e50a3693098c10",
+      "sha512": "844ae32ff0d22f4d3c83db3bae2f6edc0f74cd1a530f900bf18829838d5a354b1e439e52688416130d9fd9a52c3310458bbdbc7458f4c1c1d8ffb088ae802d32",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/ResbpANg/version/tivxiPTo",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "creaturefeature-1.2.3.3.jar",
+      "mods": [
+        {
+          "id": "creaturefeature",
+          "version": "1.2.3.3"
+        }
+      ],
+      "sha1": "e8550e1bae25f437fdaa142877027a0b783c074b",
+      "sha512": "57e4be76859b4ebedc6ed04b01080191ba5b14dc759322fd52839290a4bb99cdaa6bb031dba30e20faf65705561e351f6ac2fb21a8e1ee62b355cbd338551684",
+      "generation_resources": {
+        "neoforge/biome_modifier": 27
+      },
+      "release_url": "https://modrinth.com/mod/7nEkcq0F/version/eW0CuJzM",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "crittersandcompanions-neoforge-1.21.1-2.7.0.jar",
+      "mods": [
+        {
+          "id": "crittersandcompanions",
+          "version": "2.7.0"
+        }
+      ],
+      "sha1": "957286bd79fd0b735c2e9619a249dde77292ca06",
+      "sha512": "f93bb48b07122d1c93cd931169752814c46f2ed964da987ab5ce654e8f70242c57265c3853bbb357f5fd95c412e775bf7b9a2abeb2a2a0858eae95c8d8ba451d",
+      "generation_resources": {
+        "worldgen/configured_feature": 2,
+        "worldgen/placed_feature": 4
+      },
+      "release_url": "https://modrinth.com/mod/Yd4wb5wZ/version/aeDUpTJS",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "cupboard-1.21-3.5.jar",
+      "mods": [
+        {
+          "id": "cupboard",
+          "version": "3.5"
+        }
+      ],
+      "sha1": "e5f55c8f9d172048fe6f8b919cda1dbe3cbfbc70",
+      "sha512": "63a7a4caa08a12163a029dea05617169b32fb3ffff2be72cffe3f1c669a444525d117cd91763036285e560bd26c4fd277cb0c1dfc6f66c9235086c4c4c548bc5",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "curios-neoforge-9.5.1+1.21.1.jar",
+      "mods": [
+        {
+          "id": "curios",
+          "version": "9.5.1+1.21.1"
+        }
+      ],
+      "sha1": "418fcd42e3a7844c9bdc71c9b6401fdb3894e0c4",
+      "sha512": "5981a267686b744e7e3c227f78cbcd5267c14ac6979a28e814695f4589273998563147207fef4a5cdb7cdbdc39797cd95d9e4abadb55869f18e02a38d0654ae5",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "deeperdarker-neoforge-1.21.1-1.4.1.jar",
+      "mods": [
+        {
+          "id": "deeperdarker",
+          "version": "1.4.1"
+        }
+      ],
+      "sha1": "b6094adde68bd4b909bc75c64901e1f3fb99ad8f",
+      "sha512": "38d8d87878f39a063feb029db17702bedadf7554233ae56db6018c21225b6dff4d4cc31f4b0995254fd488e2a687f3b15bf9647c59dd42b9032791d34316ed0c",
+      "generation_resources": {
+        "dimension": 1,
+        "dimension_type": 1,
+        "worldgen/biome": 4,
+        "worldgen/configured_carver": 2,
+        "worldgen/configured_feature": 47,
+        "worldgen/noise_settings": 1,
+        "worldgen/placed_feature": 44,
+        "worldgen/processor_list": 1,
+        "worldgen/structure": 1,
+        "worldgen/structure_set": 1,
+        "worldgen/template_pool": 9
+      },
+      "release_url": "https://modrinth.com/mod/fnAffV0n/version/TuD0Zvi3",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "deimos-1.21.1-neoforge-2.8.jar",
+      "mods": [
+        {
+          "id": "deimos",
+          "version": "2.8"
+        }
+      ],
+      "sha1": "94be9c3177d47bf03c80160938f09d511bf85195",
+      "sha512": "91da94cf88e77695ff2724bb109f69a0ef3672376eeafd052cab8a4898a03748d3b468a48354f06595a4a8f798eeb05c27f8048064124632ba983bea0bce06b9",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "diorama-0.10.1+neoforge-1.21.1.jar",
+      "mods": [
+        {
+          "id": "diorama",
+          "version": "0.10.1+neoforge-1.21.1"
+        }
+      ],
+      "sha1": "53b0249016c1334ed56453ed429580a216845c41",
+      "sha512": "96d815363e3cca72aaea5c0d6ec192b69313616a2aa54fcf2c7c78f43ba91a581dc3bfa877d26268a99d616d444d31e2a1ff16b76b742f45a87d6606ec2fe8a1",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/kwpTgbCk/version/Hy4iYmoc",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "dynamicvillage-v0.5.1-1.21.1.jar",
+      "mods": [
+        {
+          "id": "dynamicvillage",
+          "version": "0.5"
+        }
+      ],
+      "sha1": "98fc2adc502c0f34ee29cba48c1e733b88c94b1c",
+      "sha512": "f16317ca147cb3558441d3e984fb21d477a061154dabaa497371a9fe4533b66e7af7ff4233f068beb089e1c9565697200e2dca990894c87c56339382fe5b9cc6",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/YCPmkFAm/version/9maBydxx",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "end_villager_outpost-1.0.0-neoforge-1.21.1.jar",
+      "mods": [
+        {
+          "id": "end_villager_outpost",
+          "version": "1.0.0"
+        }
+      ],
+      "sha1": "519db3ab64b92064036566f6ee71fd422d04d27e",
+      "sha512": "016f8647f0f0760ac30af3a486eb4329b1d3a641b9ae79cfb313c45bf56a9cab97473557d03bb1da69416115a1740c2a572244a03e85eba96694d9f1d7bc0dfc",
+      "generation_resources": {
+        "worldgen/structure": 1,
+        "worldgen/structure_set": 1,
+        "worldgen/template_pool": 1
+      },
+      "release_url": "https://modrinth.com/mod/J90dLs0h/version/R7n8tG3L",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "ends_delight-2.6.1+neoforge.1.21.1.jar",
+      "mods": [
+        {
+          "id": "ends_delight",
+          "version": "2.6.1+neoforge.1.21.1"
+        }
+      ],
+      "sha1": "0613a535d82b7a3d51d0caf0e04b082cb4c062e9",
+      "sha512": "1cb6893f285ce3bc3b2ab19e355ca14bb409e2b078e202ee273e722357494a68b156be097cbd3ceae860e985787fe37b053446bc1258884e831d7b01b4ad76a9",
+      "generation_resources": {
+        "neoforge/biome_modifier": 1,
+        "worldgen/configured_feature": 1,
+        "worldgen/placed_feature": 1
+      },
+      "release_url": "https://modrinth.com/mod/yHN0njMr/version/YTApg6Hl",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "envelope-neoforge-1.21.1-0.8.2.jar",
+      "mods": [
+        {
+          "id": "envelope",
+          "version": "0.8.2"
+        }
+      ],
+      "sha1": "46ab43001206f6f1f99f5aa29e1300fbaafb6a28",
+      "sha512": "97dd1f16299d3a4f339c2b86f4fe37550c8dbf201c3ec42e6cbf8d3d6ddbfcb35d9c25f13e0a9865cad67b035b6aa466389b132e3ac020018c2d062d7f2bc710",
+      "generation_resources": {
+        "neoforge/biome_modifier": 3,
+        "worldgen/structure": 5,
+        "worldgen/structure_set": 2,
+        "worldgen/template_pool": 11
+      },
+      "release_url": "https://modrinth.com/mod/bINSbhYK/version/6mpcJy5P",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "expandeddelight-0.1.4.jar",
+      "mods": [
+        {
+          "id": "expandeddelight",
+          "version": "0.1.4"
+        }
+      ],
+      "sha1": "cf26fe18c3a9deec525fe0f0e7c2d3b9f4e9f484",
+      "sha512": "13a2bd17c5c184902da9eb78ce9b993073864301e8cb4a038f7fd7e596188826ef13381cf615533286f53eaeaabfc4c8b27ab91113a15ea68e4bd9f84ca16b8b",
+      "generation_resources": {
+        "neoforge/biome_modifier": 7,
+        "worldgen/configured_feature": 7,
+        "worldgen/placed_feature": 7
+      },
+      "release_url": "https://modrinth.com/mod/e9V6wFcR/version/RTRYPIJp",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "FarmersDelight-1.21.1-1.3.4.jar",
+      "mods": [
+        {
+          "id": "farmersdelight",
+          "version": "1.3.4"
+        }
+      ],
+      "sha1": "27675ddfcb8cc37e6ea1ab6c15051c7949d94657",
+      "sha512": "1f6f8796469f747cff36f477b4f589a3d69613882399f9ee7f86db36c7bca9aa4828731f43db15dc6c7f5a4c1bbe3d4092a232e8cef010b09cec0581848fda90",
+      "generation_resources": {
+        "neoforge/biome_modifier": 9,
+        "worldgen/configured_feature": 10,
+        "worldgen/placed_feature": 9
+      },
+      "release_url": "https://modrinth.com/mod/R2OftAxM/version/XTVZDOol",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "friendsandfoes-neoforge-5.0.4+mc1.21.1.jar",
+      "mods": [
+        {
+          "id": "friendsandfoes",
+          "version": "5.0.4"
+        }
+      ],
+      "sha1": "0bb94ce6451d043fc480188f7e44715b83f351e8",
+      "sha512": "fcd2d45fb98b9baef8e6ff651dab0a52d8519fb472c01fb94a9e95147dfb37dff676afb61600e28523a9d65d01a4e58d9f5362964aa6c9f839a97530d4359be0",
+      "generation_resources": {
+        "neoforge/biome_modifier": 1,
+        "worldgen/configured_feature": 1,
+        "worldgen/placed_feature": 1,
+        "worldgen/processor_list": 8,
+        "worldgen/structure": 4,
+        "worldgen/structure_set": 4,
+        "worldgen/template_pool": 31
+      },
+      "release_url": "https://modrinth.com/mod/BOCJKD49/version/GFgkK01z",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "mods": [
+        {
+          "id": "geckolib",
+          "version": "4.9.3"
+        }
+      ],
+      "sha1": "5cfe835472a5c5457ae9ac192d9d7b317454d5ac",
+      "sha512": "8dfa5f8c57224a5e34e5098367ea9819ca6dc9c11357cd3062c16da3455c8bd1a483098af7383debc4b9ce8e4d7ab3fdc799b415644eb829da83eb72a7335dfd",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "GlitchCore-neoforge-1.21.1-2.1.0.2.jar",
+      "mods": [
+        {
+          "id": "glitchcore",
+          "version": "2.1.0.2"
+        }
+      ],
+      "sha1": "e3d4bb80a06f619be989ab529d0cd4e33e076943",
+      "sha512": "7a009ed163d03536fdfaee7b37cb1ec3073204dffcb06a683369aa88da8dbc3780b0ac69d466bb32a3ad9394c97b698d0fda676e1b4dd4edfc50ac5aa2283c32",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "hapi-neoforge-1.21.1-1.1.3.jar",
+      "mods": [
+        {
+          "id": "hapi",
+          "version": "1.1.3"
+        }
+      ],
+      "sha1": "18a1da3fba0b84ab6a17c74081feb2dd4aff2475",
+      "sha512": "d9690b24649b543571202334155e40677d32aa4900f779e537bd3106d526472366b1694c97a309ba87dad6be521828ea341020ed2a5d8909b1ef294e9cf3aac1",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "HopoBetterUnderwaterRuins-[1.21.1-1.21.3]-1.2.1b.jar",
+      "mods": [
+        {
+          "id": "hopour",
+          "version": "1.2.1"
+        }
+      ],
+      "sha1": "1e033af9a73d11f68af304d1a46821c0118a70ca",
+      "sha512": "a659df6cc3409c8c334e034ffb7da09af08b084e22d5cc7c5e99c609727c5034dd0f4c1dce8f75fe6c845edb9a85b31d2b6605dd4870b1da4c2e1445fda749f7",
+      "generation_resources": {
+        "worldgen/processor_list": 4,
+        "worldgen/template_pool": 15,
+        "worldgen/structure_set": 6,
+        "worldgen/structure": 6
+      },
+      "release_url": "https://modrinth.com/mod/BuWCQzqf/version/cCUmdH6y",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "hybrid_aquatic-neoforge-1.21.1-1.7.4.jar",
+      "mods": [
+        {
+          "id": "hybrid_aquatic",
+          "version": "1.7.4"
+        }
+      ],
+      "sha1": "9feffbffb1ce1a249b2002b5480ab9af56922aa6",
+      "sha512": "c71f952db5416b019007c71175c151c443a1724acce20e1a0ed7be9e4c88a68061b5cf18d57625414941928e5a21ac1f141ca922cc45ff627ecad9039e5f2a2b",
+      "generation_resources": {
+        "lithostitched/biome_injector": 22,
+        "lithostitched/worldgen_modifier": 15,
+        "neoforge/biome_modifier": 415,
+        "worldgen/biome": 14,
+        "worldgen/configured_feature": 37,
+        "worldgen/density_function": 4,
+        "worldgen/noise": 1,
+        "worldgen/placed_feature": 38,
+        "worldgen/structure": 1,
+        "worldgen/structure_set": 1,
+        "worldgen/template_pool": 1
+      },
+      "release_url": "https://modrinth.com/mod/HH4FjUqN/version/jdOU7Pzu",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "immersivesnow-1.21.1-1.4.0.jar",
+      "mods": [
+        {
+          "id": "immersivesnow",
+          "version": "1.4.0"
+        }
+      ],
+      "sha1": "46d3f58e9ec65ddb2d7c6200b6c6089681fdf703",
+      "sha512": "69a2fa9a0fa8dc7285fa2c067f6f26e9184ad27d3537c7f92f2004d3f50438380644bd31862500af9dbb07b076041ec5ea890b8b62492f05e6e6ae5677b3469a",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/mQdEVqSA/version/Of60m2yB",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "integrated_api-neoforge-1.21.1-1.9.2.jar",
+      "mods": [
+        {
+          "id": "integrated_api",
+          "version": "1.9.2"
+        }
+      ],
+      "sha1": "deb0bbaabc520dece9047f5527d1d6d85082bfae",
+      "sha512": "d9133213ef19fae4852f270ec7e144a6c683c581c24746e693b8c88a4229d3b7e471f280bd7a358f85f2cc2b545321297bf8301b2166a40b2514cd5bbbdad3dd",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "integrated_stronghold-1.1.4+1.21.1-neoforge.jar",
+      "mods": [
+        {
+          "id": "integrated_stronghold",
+          "version": "1.1.4+1.21.1-neoforge"
+        }
+      ],
+      "sha1": "9c425610a04f04d81ce9491e886c6df3fc4feac8",
+      "sha512": "e6101af3cf1eb58232ad30a9f9b936ebe728cbef681653b298edad696952d008e9a8ade03a23a9b6dab3d15e8903430aebca1b0eafa7c13d9da060e1952c6e64",
+      "generation_resources": {
+        "worldgen/processor_list": 19,
+        "worldgen/structure": 1,
+        "worldgen/structure_set": 1,
+        "worldgen/template_pool": 44
+      },
+      "release_url": "https://modrinth.com/mod/KUJdfPQz/version/GkHH2Wqj",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "integrated_villages-1.3.3+1.21.1-neoforge.jar",
+      "mods": [
+        {
+          "id": "integrated_villages",
+          "version": "1.3.3+1.21.1-neoforge"
+        }
+      ],
+      "sha1": "4ba7360abf671b1f0f40c43c590977da2048490e",
+      "sha512": "50d119a972c8813b7c6d54db828a5130f342ff8ec2728bf3c73057d46b1d575d00f37ed76a20c5dbcc84cb74970961ebf31065818f16f49b6c7a297605fba161",
+      "generation_resources": {
+        "worldgen/processor_list": 16,
+        "worldgen/structure": 12,
+        "worldgen/structure_set": 2,
+        "worldgen/template_pool": 421
+      },
+      "release_url": "https://modrinth.com/mod/o1qh5qIF/version/B5BcNY1z",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "knightlib-neoforge-1.21.1-2.0.5.jar",
+      "mods": [
+        {
+          "id": "knightlib",
+          "version": "2.0.5"
+        }
+      ],
+      "sha1": "8afd733e7fc49db40686f411e0e2a41ac7619256",
+      "sha512": "1ef8b486a19fd293d049ba76b58fd00b0dbf2ff8531b77b02cb9d2e33198a9ca1f689138ab4f0709c15c636d51ab04cc9dfaeca3b2ca3223ae726bd05edd2f71",
+      "generation_resources": {
+        "neoforge/biome_modifier": 1
+      },
+      "release_url": "https://modrinth.com/mod/hAnl9nbm/version/S2thfur8",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "knightquest-neoforge-1.21.1-1.9.4.jar",
+      "mods": [
+        {
+          "id": "knightquest",
+          "version": "1.9.4"
+        }
+      ],
+      "sha1": "4cc3375cb0191cc87a9a625508722a9b92794bb3",
+      "sha512": "a9773bd93a50d6addafb265ec725606ad7210210060aeaa6689af02409468465e8313576f004c9c275ebe4a59acbb09e35b3faf1b01604733f4122bc14c7b3e2",
+      "generation_resources": {
+        "neoforge/biome_modifier": 9
+      },
+      "release_url": "https://modrinth.com/mod/VEOQ4Jz4/version/xSSl8brL",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "kotlinforforge-5.12.0-all.jar",
+      "mods": [],
+      "sha1": "d10d062caf1aad9aec82d7852f2fee1781735c1f",
+      "sha512": "b8c3942f4d33179edf3f102f3d870b99dd436f8b8236dbbd31aa51b888162c692cfd88927295f24dc8b4375232f4c6c17360c5d6c4823f93cbcd7cf4bdc8bd14",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "L_Ender's Cataclysm 1.21.1-3.33.jar",
+      "mods": [
+        {
+          "id": "cataclysm",
+          "version": "3.33"
+        }
+      ],
+      "sha1": "f0310277167c82fd16a5c2bab220b5c5c262f133",
+      "sha512": "289f6e8364a6e432f34803a47cff8381899a1df0fdc675170323b43fd1c09579b1320d8b4e0de5df65c609b738d450c13c89e240d6d79f607888da26b7724947",
+      "generation_resources": {
+        "neoforge/biome_modifier": 1,
+        "worldgen/processor_list": 1,
+        "worldgen/structure": 15,
+        "worldgen/structure_set": 11,
+        "worldgen/template_pool": 99
+      },
+      "release_url": "https://modrinth.com/mod/46KJle7n/version/PsPYpoCC",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "lionfishapi-3.1.jar",
+      "mods": [
+        {
+          "id": "lionfishapi",
+          "version": "3.1"
+        }
+      ],
+      "sha1": "353ca00ed118eb67cf11085abbbd699884722326",
+      "sha512": "fdd90f19d0424c3a837111291d6ac1547d62cbcedd43b74d3a8946912f9c5212a5ea239a6969eccf678289bcb77cbb9a937db01fdaf60e57826f9a99893d19cb",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "lithium-neoforge-0.15.4+mc1.21.1.jar",
+      "mods": [
+        {
+          "id": "lithium",
+          "version": "0.15.4+mc1.21.1"
+        }
+      ],
+      "sha1": "97212e45c963730bbfc7c44780df99317814c21b",
+      "sha512": "2735da2088b88a8bdcd4ad02a2b6fffbfd3925557cefd4fa54b5477dfb9e582ea7f521300c060f57dff1325dd21bff276b7333363ad3371ed6893e3de9eca9cd",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/gvQqBUqZ/version/DDUrRVCA",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "lithostitched-1.8.1-neoforge-21.1.jar",
+      "mods": [
+        {
+          "id": "lithostitched",
+          "version": "1.8.1"
+        }
+      ],
+      "sha1": "88cdded5b617e19b4d2676948b5550699de23578",
+      "sha512": "6c02b8b269269d5aa84cb03bf824a1b5d52838e806c2fec8727eb4049925592dac9bb65c996858751fbb722f22ac59c4be09860e1f01e8f7b97c95be3faf7a57",
+      "generation_resources": {
+        "lithostitched/fast_noise_config": 3,
+        "lithostitched/region": 3,
+        "lithostitched/template_list": 26,
+        "lithostitched/worldgen_modifier": 3,
+        "worldgen/density_function": 5,
+        "worldgen/noise": 1,
+        "worldgen/processor_list": 24,
+        "worldgen/template_pool": 1
+      },
+      "release_url": "https://modrinth.com/mod/XaDC71GB/version/cZu4cHY3",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "Luminous Beasts V1.2.8 - NeoForge 1.21.1.jar",
+      "mods": [
+        {
+          "id": "luminous_beasts",
+          "version": "1.2.8"
+        }
+      ],
+      "sha1": "f21037dd90a03fcf3acb554946fe3c6bc2996a2c",
+      "sha512": "2d52ccadc7e43fb918a8791387ca6e3727ea0475b5cef146582308d2b5fc22b5c922e229898809c25528eae39dd21d3fd9521a33f857ccfd7fc4344f70c9a0de",
+      "generation_resources": {
+        "neoforge/biome_modifier": 26,
+        "worldgen/configured_feature": 6,
+        "worldgen/placed_feature": 6
+      },
+      "release_url": "https://modrinth.com/mod/fGCP5k6m/version/GO9lC0DU",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "Luminous Nether V1.3.4 - NeoForge 1.21.1.jar",
+      "mods": [
+        {
+          "id": "luminous_nether",
+          "version": "1.3.4"
+        }
+      ],
+      "sha1": "d70045e9463291dc06498863840e281b751244cd",
+      "sha512": "6f5bc44f88f5ca9d7900f052021f5b331d1160846a62d83f1f6e11b5975a9d7c4fbb1f1668986349f8d440b1dc4492f22f3abe4592d206df4c87b47cc0ef37ad",
+      "generation_resources": {
+        "neoforge/biome_modifier": 58,
+        "worldgen/biome": 2,
+        "worldgen/configured_feature": 43,
+        "worldgen/placed_feature": 41
+      },
+      "release_url": "https://modrinth.com/mod/2CL6BDdJ/version/vjpgXRBu",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "Luminous Overworld V1.5.52 -NeoForge 1.21.1.jar",
+      "mods": [
+        {
+          "id": "luminousworld",
+          "version": "1.5.52"
+        }
+      ],
+      "sha1": "512e4ddc5f22707aa4c9a22281873255ade84d84",
+      "sha512": "4be8a62c1a50fdd485a47c83014d5feb958f79ea6151b676d3cf7705239aff0d73b2b92079fbd60b33d762364b78c15de811d7802a46985174d41e3bb01d3156",
+      "generation_resources": {
+        "neoforge/biome_modifier": 113,
+        "worldgen/biome": 1,
+        "worldgen/configured_feature": 54,
+        "worldgen/placed_feature": 52
+      },
+      "release_url": "https://modrinth.com/mod/HT2F6lNL/version/7gCLLt7C",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "medieval_buildings_end_edition-1.21.1-1.0.4-neoforge.jar",
+      "mods": [
+        {
+          "id": "medievalend",
+          "version": "1.0.4"
+        }
+      ],
+      "sha1": "b5986544126a7600f70ea20709d28b11f28cd6ab",
+      "sha512": "7af3934421957ab2770de041480ba3b217cceb3d4d96e5dcc09b52369a0289049aef64c0651542e5ccefa4db4fb22f95ed14828824899a28f47541c95e889e24",
+      "generation_resources": {
+        "worldgen/structure": 5,
+        "worldgen/structure_set": 1,
+        "worldgen/template_pool": 5
+      },
+      "release_url": "https://modrinth.com/mod/bq6nqeOx/version/wn6LL8i1",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "modernfix-neoforge-5.27.27+mc1.21.1.jar",
+      "mods": [
+        {
+          "id": "modernfix",
+          "version": "5.27.27+mc1.21.1"
+        }
+      ],
+      "sha1": "52c008540c7dc2cc451f7e939a885d7462c9ae72",
+      "sha512": "af14a35e51f1c5d94139c6225ae641e8b0ded5a8c68eb4806cf28025d6c043455ac289902cd6b854a867320ab845ad619b186d02b8341822faf03f4476dec555",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/nmDcB62a/version/ZDZENbHH",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "MoogsBountifulStructures-1.21-1.0.10.jar",
+      "mods": [
+        {
+          "id": "mbs",
+          "version": "1.0.10"
+        }
+      ],
+      "sha1": "e5b63c19e78be484a1dffb6d170addf8672caf6c",
+      "sha512": "9e94def52f6a5c943f2a55314613ee6ba65875a722b48c4753b4b012fb82628ce02faeaa7a0b9d98df5dcec02b1a46c5cd4b0f942c25313cd90f6a6ac5b68396",
+      "generation_resources": {
+        "worldgen/template_pool": 97,
+        "worldgen/structure_set": 96,
+        "worldgen/structure": 96
+      },
+      "release_url": "https://modrinth.com/mod/Qnb1HbfK/version/MlvqecgF",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "MoogsEndStructures-universal-1.21-2.1.1.jar",
+      "mods": [
+        {
+          "id": "mes",
+          "version": "2.1.1"
+        }
+      ],
+      "sha1": "ef5f57f0e5d06a2f8bec5c073e01ddb061ad477a",
+      "sha512": "5732c98bf3d1e6aa3c76cf23db77301065dd96f060fb9bf85e8af00769bc6a93e213aad7ff79a3116b3cfd5015fe98437bdadf9fdc0dd829eae1759e3c1fee96",
+      "generation_resources": {
+        "worldgen/structure_set": 25,
+        "worldgen/structure": 25,
+        "worldgen/template_pool": 60
+      },
+      "release_url": "https://modrinth.com/mod/r4PuRGfV/version/S7bUhX4n",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "MoogsNetherStructures-universal-1.21-3.1.1.jar",
+      "mods": [
+        {
+          "id": "mns",
+          "version": "3.1.1"
+        }
+      ],
+      "sha1": "78845cb7bccaa7812bacce4efdd5481b81b8c347",
+      "sha512": "95f8f8fcff3851bf1b92e2ab8465e551506fe819d5269ef7e251d446563546a318ee7fcb7b8a671209895e4fd5df084101f203da43b65d1af4833e9d7bae6c00",
+      "generation_resources": {
+        "worldgen/structure_set": 42,
+        "worldgen/structure": 52,
+        "worldgen/template_pool": 168,
+        "worldgen/processor_list": 12
+      },
+      "release_url": "https://modrinth.com/mod/nGUXvjTa/version/OLTqXnsN",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "MoogsSoaringStructures-universal-1.21-2.2.0.jar",
+      "mods": [
+        {
+          "id": "mss",
+          "version": "2.2.0"
+        }
+      ],
+      "sha1": "1284c673b46a50b0557c2c018f677323484665f6",
+      "sha512": "1460cbb932e8f39c00bc7f980322696107c965094e00b9a05aa6b4ce6bc9babff5c3444b2135b8a6e7b88285dabbe3426cc4780fd1e3a8b64cc1b2cd8adb9dca",
+      "generation_resources": {
+        "worldgen/structure_set": 28,
+        "worldgen/structure": 35,
+        "worldgen/template_pool": 94,
+        "worldgen/processor_list": 22
+      },
+      "release_url": "https://modrinth.com/mod/RJCLIx7k/version/O20bIWkj",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "MoogsStructureLib-neoforge-1.21.1-3.4.2.jar",
+      "mods": [
+        {
+          "id": "moogs_structures",
+          "version": "3.4.2"
+        }
+      ],
+      "sha1": "c379b8d5dc1a4b1e8987da1052d6b4de81354d72",
+      "sha512": "378d5da579e65e8c37d81aee510302f99b3097f0c6a4245f3621478f741fac3b55a3715227d9408153a66c98624f8fcb5f93e98027212e0f0a82b768315d0651",
+      "generation_resources": {
+        "worldgen/structure": 1,
+        "worldgen/structure_set": 1,
+        "worldgen/template_pool": 2
+      },
+      "release_url": "https://modrinth.com/mod/1oUDhxuy/version/wcg4mE4e",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "moonlight-1.21.1-3.8.3-neoforge.jar",
+      "mods": [
+        {
+          "id": "moonlight",
+          "version": "1.21.1-3.8.3"
+        }
+      ],
+      "sha1": "046821d548a1269164c792bab46d55798085c285",
+      "sha512": "7b6479af8052419080bb1f5d28742daeef38a62bf33f2b47b70a1dafb01a06afd485cbc22e9f95c210e72b62364b96f539257dc8e03f5631a586ee9c4b5121bf",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "moredensityfunctions-neoforge-1.21.1-2.3.0.jar",
+      "mods": [
+        {
+          "id": "moredensityfunctions",
+          "version": "2.3.0"
+        }
+      ],
+      "sha1": "4f9d99dd66dd002ce09fd57fa594f189ef6164a2",
+      "sha512": "684594684f0d562d1d9be8b164f26c9491e4cca51d7f971a4048e16bdb9d21f069c258c647067be794077e70784a1e1f8519e3c9a22bedeba42b0442e293e203",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/HAVlno45/version/iSzvhglx",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "mowziesmobs-1.21.1-1.8.2.jar",
+      "mods": [
+        {
+          "id": "mowziesmobs",
+          "version": "1.8.2"
+        }
+      ],
+      "sha1": "d64475cd77444b056ece6472c79d40293dc63c6c",
+      "sha512": "ab10d2f759df613d5094bac26c5a8bbe144786699018f7e4ae027fc4a86632aa7f96206f2c8be9970338eadef42539614a19b41d0d70b6216c3ed1c4c4421f0a",
+      "generation_resources": {
+        "neoforge/biome_modifier": 1,
+        "worldgen/processor_list": 1,
+        "worldgen/structure": 4,
+        "worldgen/structure_set": 4,
+        "worldgen/template_pool": 44
+      },
+      "release_url": "https://modrinth.com/mod/BFbX9xcm/version/xgAXTl17",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "moyai-1.21-2.1.8-neoforge.jar",
+      "mods": [
+        {
+          "id": "moyai",
+          "version": "1.21-2.1.8"
+        }
+      ],
+      "sha1": "6415b3f7746dea1c8f28f3f59d1c027727bbcf0f",
+      "sha512": "058693837dbdf4d368ae90ea54195a568565983a788cd3fe57e44bc27ff06ba40c74696e8eea734c45233739b8eae0633224ce08b97b5b278f2022eb8df4ace4",
+      "generation_resources": {
+        "neoforge/biome_modifier": 2,
+        "worldgen/configured_feature": 3,
+        "worldgen/placed_feature": 3
+      },
+      "release_url": "https://modrinth.com/mod/z7WhFkyW/version/cUm81Vji",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "MutantMonsters-v21.1.1-1.21.1-NeoForge.jar",
+      "mods": [
+        {
+          "id": "mutantmonsters",
+          "version": "21.1.1"
+        }
+      ],
+      "sha1": "c9981cf323d5e0fd49387ad20dafec1f58b2c88d",
+      "sha512": "4d969c457a01e49a242ebc03112031bd338be08fc4ab36540b222b0a64e72a778a6534ad2be7c5cf72a5a74e1ce58e66e2999957f68c189c868dbc48bef44708",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/derP0ten/version/dauEcrnZ",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "no-airship-villages-1.0.0-neoforge-1.21.1.jar",
+      "mods": [
+        {
+          "id": "no_airship_villages",
+          "version": "1.0.0"
+        }
+      ],
+      "sha1": "58273f370423a8b918883d329c1613066be9c92b",
+      "sha512": "42a4e24e6506a7edab8bafea99a365ad9fc9b897fc1e463839ee9533ea9e2bc343129556ed99142011687ed0eecc5098069420ecb8341af5f64549ad3f36e32f",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "Nullscape_1.21.x_v1.2.14.jar",
+      "mods": [
+        {
+          "id": "nullscape",
+          "version": "1.2.14"
+        }
+      ],
+      "sha1": "ae8e1cbd5de6cf6f450bb44cd69cd284dad690dd",
+      "sha512": "b35a9dfdc7180ca851aea378ee4687e18b3aae717c16870a7762afc67dc0c77598fb2c4a62cb12d6ed0eacf7c9166520e0a3e7dce20da09817065d27e62c8b44",
+      "generation_resources": {
+        "worldgen/configured_surface_builder": 2,
+        "worldgen/structure_set": 3,
+        "worldgen/configured_carver": 9,
+        "worldgen/placed_feature": 93,
+        "worldgen/template_pool": 7,
+        "worldgen/density_function": 92,
+        "worldgen/biome": 8,
+        "worldgen/processor_list": 5,
+        "worldgen/configured_feature": 98,
+        "worldgen/noise": 61,
+        "worldgen/structure": 2,
+        "worldgen/noise_settings": 2,
+        "dimension": 1,
+        "dimension_type": 1
+      },
+      "release_url": "https://modrinth.com/mod/LPjGiSO4/version/3fv8O3xX",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "owo-lib-neoforge-0.12.15.6-beta.1+1.21.jar",
+      "mods": [
+        {
+          "id": "owo",
+          "version": "0.12.15.6-beta.1+1.21"
+        }
+      ],
+      "sha1": "3a7f843ce3a4d24f8765a74bc5dde914b316b992",
+      "sha512": "fc843ef350c4af6748d9fd6ecd3c28f96262cf46d46a8329029f49ea4f9eb87238113a8a415e8bba2c4f346c718bf450194f6f5823dfbf1ae7312529a81c3e5c",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "Platform-neoforge-1.21.1-1.4.2.jar",
+      "mods": [
+        {
+          "id": "platform",
+          "version": "1.4.2"
+        }
+      ],
+      "sha1": "38947983b65b08bffdcbbc347949a7bc5c6426e1",
+      "sha512": "24f9640cc830ffc9b921f89187aaa2ee41aeb9949b36a9ab11b94313c9f4eebb94e5aa7ee3089237f677d3c72aa860bb2bf332c900030c8f7dd5bbcc25ece73a",
+      "generation_resources": {
+        "neoforge/biome_modifier": 1
+      },
+      "release_url": "https://modrinth.com/mod/i6fiqm5y/version/rh4p4ixM",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "puzzleslib-v21.1.66-mc1.21.1+neoforge.jar",
+      "mods": [
+        {
+          "id": "puzzleslib",
+          "version": "21.1.66"
+        }
+      ],
+      "sha1": "fd584167f1277aef5411a98a22390c65cabe6e07",
+      "sha512": "d265016586d39d7e0ac63b064fcad6fd64df79ce885ae81aa1d7a51ba32b4c6849c4b3021b563667eb392599512fe193adfa52b40d99a101ab411dd0b5c5d484",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/QAGBst4M/version/kmN5PWk9",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "Quark-4.1-488.jar",
+      "mods": [
+        {
+          "id": "quark",
+          "version": "4.1-488"
+        }
+      ],
+      "sha1": "db882304edf822719b6f582b30a25c04b7f94889",
+      "sha512": "06f68ae18faa06497bf2495ef8c34b6f34cccd304939736e009aec024879b2998234bc4fedd7abd9125112e7c0afeb5fd7ddbcc54b6034bd4c95b479ed8880f4",
+      "generation_resources": {
+        "worldgen/configured_feature": 7,
+        "worldgen/placed_feature": 8,
+        "worldgen/biome": 1
+      },
+      "release_url": "https://modrinth.com/mod/qnQsVE2z/version/pMjjsBGF",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "railwaysuntold-1.21.1-neoforge-1.2.2.jar",
+      "mods": [
+        {
+          "id": "railwaysuntold",
+          "version": "1.2.2"
+        }
+      ],
+      "sha1": "a6ca8ffa029f97b82d371d4b80bc0d25abb07a48",
+      "sha512": "36f7f2f6717ec251bb4b8aa9cae3d50d272efe0fa8a47066dbd7cb44ebf88bb21b4a5f377001cec6c17f9d2dc963117e4ed524c22dca9602af63679c5183e308",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/R7r9n6Wu/version/guWxFvi4",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "rarer-spawn-islands-1.0.0-neoforge-1.21.1.jar",
+      "mods": [
+        {
+          "id": "rarer_spawn_islands",
+          "version": "1.0.0"
+        }
+      ],
+      "sha1": "efd5fd3f2b373683ab06882ba0d1eb8518169fc6",
+      "sha512": "41bc47795e22e02839d6ca3c7d2d93e9cf34fdde6a92ebfd8c2c3253a4fdc6ce4d640399e7c6221a2fe8fe50b013fdffd2ee625ce2b08ad04432901e9aee7da0",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "redirected-neoforge-1.0.0-1.21.1.jar",
+      "mods": [
+        {
+          "id": "redirected",
+          "version": "1.0.0"
+        }
+      ],
+      "sha1": "2704eeefedf52edc30d68c84e2ee0ccf4eea6da0",
+      "sha512": "029439eed72acb8501f06fd934da24a4a71290500bf2754cd1d497ed9fff380b0aff7f78b076a6a44fbaae31fa2313101ea622a83c3fafba748db70c8de7a530",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/hhnR8xqU/version/B9DLRbbX",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "resourcefulconfig-neoforge-1.21-3.0.11.jar",
+      "mods": [
+        {
+          "id": "resourcefulconfig",
+          "version": "3.0.11"
+        }
+      ],
+      "sha1": "6bf2b6ea9c071c00a2abcdc552667fb6f7d21031",
+      "sha512": "8e4ccc37732b3f5190e7e98df34dbc1339fe614494fcabf1aeaeab9ad8e5993522964b51be31882000c08c48a6d0096b5458364415bb81f2b2b775a7daf2eb87",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "resourcefullib-neoforge-1.21-3.0.12.jar",
+      "mods": [
+        {
+          "id": "resourcefullib",
+          "version": "3.0.12"
+        }
+      ],
+      "sha1": "24389c8e48ff0e8594e4686b750c494c66a5f8df",
+      "sha512": "a9d20e345faa9bcb297bd95ac9524205834804d1bb13518397dd4f7f62b352b08c3339ee7f7870d3669078ceeb33d5c31ea527aecce4b31d62ec1ff7d8b562c8",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "SereneSeasons-neoforge-1.21.1-10.1.0.9.jar",
+      "mods": [
+        {
+          "id": "sereneseasons",
+          "version": "10.1.0.9"
+        }
+      ],
+      "sha1": "6b98eb4e64344bb8aba424187ed08bf04e59dccf",
+      "sha512": "a85209de65af7999b29af850e05ad3a045c208a005ec3a7e4e66a58f1c9d90fda501ba80a6245209a4aad856ee053c21c4f679efe8c02981746e907915e31fe1",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/e0bNACJD/version/pHEgQQUE",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "serilumsspawnbundle-1.21.1-2.7.jar",
+      "mods": [
+        {
+          "id": "serilumsspawnbundle",
+          "version": "2.7"
+        }
+      ],
+      "sha1": "5468fa2bd4bfe720eddb8faac9c8564c76760d45",
+      "sha512": "04b175fb81360d534cfc697de8fb41e594f181783a7519035ab801b2b5e3f3591181e908a3037dfc8886e635c440db02925ef611bb9ddb0a903b3a827819eb43",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/EJYYAJ4W/version/aHXAGEJa",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "servercore-neoforge-1.5.19+1.21.1.jar",
+      "mods": [
+        {
+          "id": "servercore",
+          "version": "1.5.19+1.21.1"
+        }
+      ],
+      "sha1": "62ce692654e09271b5c55cbb3a1ef7606d067132",
+      "sha512": "55b97df4cc46f52db85b96487188d73c62d511229d98859991c115414c5f1ab37f2f40a0f2edb5692220aa94d6c48b392b0a2d8593b3c3381b1fcbde2a728c8f",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/4WWQxlQP/version/6N9hXiRa",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "serversidehorror-1.21.1-neoforge-5.2.jar",
+      "mods": [
+        {
+          "id": "serversidehorror",
+          "version": "5.2"
+        }
+      ],
+      "sha1": "4634e627416d557bb5dd03d89f88826ef6b6b8ba",
+      "sha512": "1260c6c10d9ded7e3d4731707955ee682c92bc107eed94e78ba1605bb8a676c71de7fe65abb220a3dbc4acdfc68d092b8527ba88916461dffe78b0ed8559e6a7",
+      "generation_resources": {
+        "worldgen/structure": 23,
+        "worldgen/structure_set": 2,
+        "worldgen/template_pool": 35
+      },
+      "release_url": "https://modrinth.com/mod/RJ4U0qmn/version/PD0ydQYJ",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "spawn-4.0.8-1.21.1.jar",
+      "mods": [
+        {
+          "id": "spawn",
+          "version": "4.0.8-1.21.1"
+        }
+      ],
+      "sha1": "3af0c476f36a3888f4686c181036a0a179a8b7b5",
+      "sha512": "f6db8f8a11d90d973ad4e7041816793a70e298949c4d378cb08a2b78937327c8f2d5c75d1f938a0493adad1a5a1c6fda67949867b7c7b1c56c5d58eda8ae8204",
+      "generation_resources": {
+        "lithostitched/biome_injector": 7,
+        "neoforge/biome_modifier": 34,
+        "worldgen/biome": 10,
+        "worldgen/configured_feature": 62,
+        "worldgen/placed_feature": 65,
+        "worldgen/processor_list": 2,
+        "worldgen/structure": 8,
+        "worldgen/structure_set": 8,
+        "worldgen/template_pool": 4
+      },
+      "release_url": "https://modrinth.com/mod/rex9wwpz/version/OgmUYgeL",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "StreamsReflowing-1.21.1-neoforge-2.17.3.jar",
+      "mods": [
+        {
+          "id": "streamsreflowing",
+          "version": "2.17.3"
+        }
+      ],
+      "sha1": "251892b34e1d714722298d6aace7f6452da301a1",
+      "sha512": "f2d635c077098aff2eeee00839c67765a205b556d65a2694f7904d28717babfe11155702bbaeeceb8870708b1e373007ae06549af050c8d336945e35938f0a6d",
+      "generation_resources": {
+        "worldgen/configured_feature": 20,
+        "neoforge/biome_modifier": 5,
+        "worldgen/biome": 1,
+        "worldgen/placed_feature": 17
+      },
+      "release_url": "https://modrinth.com/mod/oLS8HdJ1/version/ktZSuv7E",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "structure_layout_optimizer-neoforge-1.0.12.jar",
+      "mods": [
+        {
+          "id": "structure_layout_optimizer",
+          "version": "1.0.12"
+        }
+      ],
+      "sha1": "052c31cb9881c04c17d949345539aa8684f474bf",
+      "sha512": "8c38ebd0e221f5bfe887a40ab21caede40cadc90bfc3b8dbbc79888c07faee44d58f12a974f1c5af324c9feceaa2ed04ea62724c6453650c77e1910582914153",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/ayPU0OHc/version/eTz03Gfd",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "structureessentials-1.21.1-5.0.jar",
+      "mods": [
+        {
+          "id": "structureessentials",
+          "version": "5.0"
+        }
+      ],
+      "sha1": "5c059c2cb2ad8c43e1384b0939bf258801aadfea",
+      "sha512": "eed7ab74a9d3fe847583797d18154062f904d818d80e858c2cb3063d745bbdadb6d1d1e651dc5922b1a0da0d2a86b83daa54d0e8cf82abdc5d76a0e7efba585d",
+      "generation_resources": {},
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/structure-essentials-forge-fabric/files/7962596",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "supplementaries-1.21.1-4.1.1-neoforge.jar",
+      "mods": [
+        {
+          "id": "supplementaries",
+          "version": "1.21.1-4.1.1"
+        }
+      ],
+      "sha1": "b1e0c795341f98ce4980ef2d606f3b9f9ef38021",
+      "sha512": "4acaddb2c7ff2cd93819fade6553b233f50ad084f8dbf1e8ad492eebc79cf1a4b477c46c775cf7fb7d93881d562d29f4e0de58701713a77cac03b72b31a04060",
+      "generation_resources": {
+        "neoforge/biome_modifier": 5,
+        "worldgen/configured_feature": 6,
+        "worldgen/placed_feature": 6,
+        "worldgen/processor_list": 1,
+        "worldgen/structure": 2,
+        "worldgen/structure_set": 2,
+        "worldgen/template_pool": 12
+      },
+      "release_url": "https://modrinth.com/mod/fFEIiSDQ/version/ry2Njtnv",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "teallib-1.3.teal.jar",
+      "mods": [
+        {
+          "id": "teallib",
+          "version": "1.3.teal"
+        }
+      ],
+      "sha1": "b186cdfd311158858429e494ecd11e2157274eff",
+      "sha512": "11060adb8aae151879e8e4db4ad5409df1044784fe9e6d6a5f4750ea778317bd37ca9129f39d23e18988b912ab036a9fb3a128761726f927ac23797dd02ed381",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "TerraBlender-neoforge-1.21.1-4.1.0.8.jar",
+      "mods": [
+        {
+          "id": "terrablender",
+          "version": "${file.jarVersion}"
+        }
+      ],
+      "sha1": "744394d979b422be560babf9df7a6800ede9ac5b",
+      "sha512": "9d4b2a1be5139c0fb2fad92ed21805b17d9e83b6ea48e637e018bb14063c1823a206390755dbfe8d025c20fd62ac11cdd84db53ddb956dabaeda01bff57bac50",
+      "generation_resources": {
+        "worldgen/biome": 1
+      },
+      "release_url": "https://modrinth.com/mod/kkmrDlKT/version/6e8GCrLb",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "Terralith_1.21.1_v2.6.2_Neoforge.jar",
+      "mods": [
+        {
+          "id": "terralith",
+          "version": "2.6.2"
+        }
+      ],
+      "sha1": "d4a9fe71b841f70edfb4b280f9bf5c58e4a28224",
+      "sha512": "35298f1682567f63dc16658b04cee5498b30819f1c05f9712b4480d7f5eb17059db3b13ab14f81a05fe257149d11ced2cce2030d3727c1747edd8657c53e2a85",
+      "generation_resources": {
+        "dimension": 2,
+        "worldgen/biome": 130,
+        "worldgen/configured_carver": 2,
+        "worldgen/configured_feature": 481,
+        "worldgen/density_function": 104,
+        "worldgen/multi_noise_biome_source_parameter_list": 1,
+        "worldgen/noise": 132,
+        "worldgen/noise_settings": 1,
+        "worldgen/placed_feature": 565,
+        "worldgen/processor_list": 7,
+        "worldgen/structure": 28,
+        "worldgen/structure_set": 7,
+        "worldgen/template_pool": 49
+      },
+      "release_url": "https://modrinth.com/mod/8oi3bsk5/version/IY93YaEe",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "tide-neoforge-1.21.1-2.1.1.jar",
+      "mods": [
+        {
+          "id": "tide",
+          "version": "2.1.1"
+        }
+      ],
+      "sha1": "6916fb787c0c3da859166b57a9aaac287d7ed144",
+      "sha512": "a6ee50e7b1a31e3d12641827ada1816da08c6185ca6447a23c7f90bf4964c022c8dafd8d9df865b4c2368365b21114d326bd5eabde1c76392123d3e9b4b6111f",
+      "generation_resources": {
+        "neoforge/biome_modifier": 74
+      },
+      "release_url": "https://modrinth.com/mod/die1AF7i/version/1ki6UyqV",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "Twigs-1.21.1-3.1.2.jar",
+      "mods": [
+        {
+          "id": "twigs",
+          "version": "1.21.1-3.1.2"
+        }
+      ],
+      "sha1": "528c54b099afc36ae50c408ce9bfb78a28bdea8b",
+      "sha512": "8edc6ce6baa785800b72b0ffad6cffef3217573cc091600b63e616ef91f3c2ee3598bb64c17deb228b6e79d54b32769348e5f524381e4f7af4b2215c10d1ab88",
+      "generation_resources": {
+        "neoforge/biome_modifier": 9,
+        "worldgen/configured_feature": 8,
+        "worldgen/placed_feature": 10,
+        "worldgen/structure": 1,
+        "worldgen/structure_set": 1,
+        "worldgen/template_pool": 1
+      },
+      "release_url": "https://modrinth.com/mod/RG50cUrX/version/r1egimV5",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "txnilib-neoforge-1.0.24-1.21.1.jar",
+      "mods": [
+        {
+          "id": "txnilib",
+          "version": "1.0.24"
+        }
+      ],
+      "sha1": "17b1bbb96e922e683a1807a2e7bece603fdc491d",
+      "sha512": "656cd5746fe1b3a2cc7c516619d9f88556f37387e672bb0f362c8aecefc6f1d06705d3a84564c8779856fbbf69fee67b6038a24ffcf46f36f2c478a1aff43a57",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "underground_village-neoforge-1.21.1-2.0.jar",
+      "mods": [
+        {
+          "id": "underground_village",
+          "version": "2.0"
+        }
+      ],
+      "sha1": "53e65e6e0be47e7ee23e5d52535a595b440a88d3",
+      "sha512": "6e4a98011c30e2157a7e8aa64bd05a23ce2dbc56c46aa673c40147f3743f1a3cdcdd68dd4eb3fdf1ede73acf237b008f87ef82c556860de36628b3c5bb364a8f",
+      "generation_resources": {
+        "worldgen/processor_list": 5,
+        "worldgen/template_pool": 29,
+        "worldgen/structure": 2,
+        "worldgen/structure_set": 2
+      },
+      "release_url": "https://modrinth.com/mod/KmyhssPl/version/tTkOkmZ6",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "underwater_village-1.0.2-neoforge-1.21.1.jar",
+      "mods": [
+        {
+          "id": "underwater_village",
+          "version": "1.0.2"
+        }
+      ],
+      "sha1": "0adcea413b73bad85a5dbb7f18e80576378817e2",
+      "sha512": "87362fb9df4851e5445d6536bbe4a149f9effb38def78ffaed6f33fe656d1333add9566983a13b2038796b6c7ac7a26961e2306c66bf5c7ca43704babc1738df",
+      "generation_resources": {
+        "worldgen/structure": 17,
+        "worldgen/structure_set": 17,
+        "worldgen/template_pool": 17
+      },
+      "release_url": "https://modrinth.com/mod/b4628Bd1/version/ZCmcmtOR",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "upgrade_aquatic-1.21.1-7.0.2.jar",
+      "mods": [
+        {
+          "id": "upgrade_aquatic",
+          "version": "7.0.2"
+        }
+      ],
+      "sha1": "b60f38a304dd29e6c6caf187d4abb8d1d4a15845",
+      "sha512": "e003cf0e48bc94dcead32004b8a2f061996649d80118c1a79e02a14316f62b5e6ba7b81415eeb4fd13e61c5777b2da36c9912fb0e8ab2a29c35979ed4c289c51",
+      "generation_resources": {
+        "neoforge/biome_modifier": 20,
+        "worldgen/configured_carver": 1,
+        "worldgen/configured_feature": 8,
+        "worldgen/placed_feature": 13
+      },
+      "release_url": "https://modrinth.com/mod/gTuTFFyz/version/9zf6y4e4",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "VanillaBackport-neoforge-1.21.1-1.2.2.jar",
+      "mods": [
+        {
+          "id": "vanillabackport",
+          "version": "1.2.2"
+        }
+      ],
+      "sha1": "12871e5330f8b33df7740a975047fc9a584d0387",
+      "sha512": "89b0fbe66fb26cbc74d8ba55d2e6c76ea9652a0812582a955b1f32604a1d033f2be59f06df7cd4232520b8edba6074ac724525136d5ceaa1cfce88a53ab7d9a0",
+      "generation_resources": {
+        "worldgen/biome": 3,
+        "worldgen/configured_feature": 35,
+        "worldgen/noise": 2,
+        "worldgen/placed_feature": 42,
+        "worldgen/structure": 18,
+        "worldgen/structure_set": 1,
+        "worldgen/template_pool": 57
+      },
+      "release_url": "https://modrinth.com/mod/6xwxDTgf/version/mGS7BxD4",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "wab-1.21.1-1.3.2.jar",
+      "mods": [
+        {
+          "id": "wan_ancient_beasts",
+          "version": "1.3.2"
+        }
+      ],
+      "sha1": "67feffa9d6b8a74c4cac1e3858653fcbf33f69c8",
+      "sha512": "9835967d3b34f8205ab4d1b4d7f730c4bee1488d75aa551f12d6626d3d0b7d085d988d6cc4ac9a1cc4d478cedb80ef991a8ff141abb8894f401eb37459d43507",
+      "generation_resources": {
+        "neoforge/biome_modifier": 2,
+        "worldgen/processor_list": 1,
+        "worldgen/structure": 35,
+        "worldgen/structure_set": 7,
+        "worldgen/template_pool": 35
+      },
+      "release_url": "https://modrinth.com/mod/nWC3kyL3/version/PY7QH8HR",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "waystones-neoforge-1.21.1-21.1.46.jar",
+      "mods": [
+        {
+          "id": "waystones",
+          "version": "21.1.46"
+        }
+      ],
+      "sha1": "75718161662d9ec957ba22e10e497788ec1687ba",
+      "sha512": "ca90b58d884d4bc2b08a870484ae7ede397e71d31eaaf01ff2603ad498d584763e099c2094e57031522385339705d2c011ed4910bf36efae688e64935b49ece9",
+      "generation_resources": {
+        "lithostitched/worldgen_modifier": 5,
+        "worldgen/configured_feature": 10,
+        "worldgen/placed_feature": 10,
+        "worldgen/template_pool": 5
+      },
+      "release_url": "https://modrinth.com/mod/LOpKHB2A/version/6Z6MQ6os",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "world_preview-1.3.1.jar",
+      "mods": [
+        {
+          "id": "world_preview",
+          "version": "1.3.1"
+        }
+      ],
+      "sha1": "c0da5fb6fb8d348a32f2fbceb9f2c38403a1712c",
+      "sha512": "0b5bba44e7b4308f0245a3d8c5f57a9f31fbba6e168f6ff2186eca3b00bb21f128682b43622801ac00f7010456dac39119b2e1401c6aa096c31f61b046aa53b4",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/7kyIwfie/version/AQCgiv4K",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar",
+      "mods": [
+        {
+          "id": "yet_another_config_lib_v3",
+          "version": "3.8.2+1.21.1-neoforge"
+        }
+      ],
+      "sha1": "fe270c9f6e0a8142cf316944087f5109cef08bbb",
+      "sha512": "583de19b927ce8050c2b7d5e60b75accc69e325e5aac85c27994c82a9dec2e4e078343fa1d4c3a10d4bd7e0e524e0b3b246a18cf03db01e363a1e6f865adcf48",
+      "generation_resources": {},
+      "release_notes_reviewed": false,
+      "note": "No matched published release notes reviewed; installed artifact tested."
+    },
+    {
+      "file": "YungsApi-1.21.1-NeoForge-5.1.9.jar",
+      "mods": [
+        {
+          "id": "yungsapi",
+          "version": "1.21.1-NeoForge-5.1.9"
+        }
+      ],
+      "sha1": "2c4b740c8ad27bbcb2a21b85b64f011b809aed91",
+      "sha512": "7e3cf0b429e8a1c51dca094c2d8eabf12245bb42cbcd8b6e3e54959f931bef93201b81a08d200b417059aaa438e8eb445c3978a09568597bfb588199b7775967",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/Ua7DFN59/version/2prKITKh",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "YungsBetterEndIsland-1.21.1-NeoForge-3.1.2.jar",
+      "mods": [
+        {
+          "id": "betterendisland",
+          "version": "1.21.1-NeoForge-3.1.2"
+        }
+      ],
+      "sha1": "832f2c17425debe74a9f267f4136f1a0f0221d19",
+      "sha512": "02923a1a97eb81ec13d69bdc6b7e8b36dfb9e6f1a98adfcf103707ec3afde35831ccd4b210e9b3a9c7662541c38ea593a3d94c12171b4072ea7feafa75c95f96",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/2BwBOmBQ/version/I52NZ1qK",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "YungsCaveBiomes-1.21.1-NeoForge-3.1.1.jar",
+      "mods": [
+        {
+          "id": "yungscavebiomes",
+          "version": "1.21.1-NeoForge-3.1.1"
+        }
+      ],
+      "sha1": "bcab81f578b3cb31e599ae327c6634b9fa8d0f04",
+      "sha512": "9e88b5109e06c791f27c23df16ebd2c535b5b27cf9b748ee6a439dccf3e560d32110b81ace5ea7dcca2992394b439223c20e4f2688e80e263efa103e2b154024",
+      "generation_resources": {
+        "worldgen/biome": 2,
+        "worldgen/configured_feature": 16,
+        "worldgen/placed_feature": 20
+      },
+      "release_url": "https://modrinth.com/mod/cs7iGVq1/version/HYGqXWqQ",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "Zeta-1.1-40.jar",
+      "mods": [
+        {
+          "id": "zeta",
+          "version": "1.1-40"
+        }
+      ],
+      "sha1": "72f6efe421cfc0547c774ae8241d727b7d996754",
+      "sha512": "a81dcf44f2bfd0fc1a52f00d9ca47a84ad2baf067adedb35eec859f6b9cec7b61ca432e549a3342b10902f84e76d70224cd54400285c8b13a0926835a62c667c",
+      "generation_resources": {
+        "neoforge/biome_modifier": 1
+      },
+      "release_url": "https://modrinth.com/mod/MVARlG2f/version/9GjNW2Gf",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "zfastnoise-1.0.13+1.21.1+neoforge.jar",
+      "mods": [
+        {
+          "id": "zfastnoise",
+          "version": "1.0.13+1.21.1+neoforge"
+        }
+      ],
+      "sha1": "7b9f0b4d62a6e30505f8e64ebb58dfd2dc46c81e",
+      "sha512": "23c50dc3d75da96d87b065381e32a979528017f872d056bf1cb012e085122734ab218ea8af7b5570403d83c88ebfb53296969af47198fdb637058753d3974278",
+      "generation_resources": {},
+      "release_url": "https://modrinth.com/mod/OnlVIpq5/version/9vSFkDAr",
+      "release_notes_reviewed": true
+    },
+    {
+      "file": "zombie_variants-neoforge-1.0.3-1.21.1.jar",
+      "mods": [
+        {
+          "id": "zombie_variants",
+          "version": "1.0.3"
+        }
+      ],
+      "sha1": "562169cee10df0335e4925aafa0e70e7e636a0c7",
+      "sha512": "2dbf27a143cbd6f3806c1a1b5579b739d755222323d32de57aa186d17d9a91a544bc81e3838fb09865b4017a76146e5bcf34131b8a5c901145503a3ed550ad1c",
+      "generation_resources": {
+        "neoforge/biome_modifier": 3
+      },
+      "release_url": "https://modrinth.com/mod/b9aFBeGb/version/mr853QE1",
+      "release_notes_reviewed": true
+    }
+  ]
+}

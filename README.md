@@ -10,13 +10,13 @@ Unofficial Minecraft mod; not approved by or affiliated with Mojang or Microsoft
 
 Create one continent, attached continents, an island group, or mixed continents surrounded by ocean. Mixed continents combine large landmasses with randomized satellite islands, occasional land bridges, coves, and peninsulas. Preview the planned coastline before creating your world, randomize its shape, and optionally add gradual cold-north/temperate-middle/hot-south climate bands.
 
-**Alpha · 0.5.0-alpha.** Latitude climate starts **off**. Compatibility checks pass with the documented mod profiles; individual village placement, long stream routes, and the new climate editor's visual click-through remain unverified. See [compatibility and verification limits](docs/COMPATIBILITY.md).
+**Alpha · 0.5.1-alpha.** Latitude climate starts **off**. This release fixes Hybrid Aquatic trenches and Spawn islands outside the coastline plan. See the [WIP worldgen compatibility audit](docs/WIP-WORLDGEN-AUDIT.md) for the tested 103-jar generation stack and remaining limits.
 
 ## Installation
 
 For **Minecraft 1.21.1**, **NeoForge 21.1.265 or newer in the 21.1 series**, and **Java 21**.
 
-1. Download `akis-islands-mod-1.21.1-0.5.0-alpha.jar` from the [alpha release](https://github.com/Achilleus-1/Akis-Islands-Mod/releases/tag/v0.5.0-alpha).
+1. Download `akis-islands-mod-1.21.1-0.5.1-alpha.jar` from the [alpha release](https://github.com/Achilleus-1/Akis-Islands-Mod/releases/tag/v0.5.1-alpha).
 2. Place it in your NeoForge profile's `mods` folder and remove older Aki's Islands jars. For multiplayer, install the same version on the server and participating clients.
 3. Open **Singleplayer → Create New World → World**, then select **World Type: Aki's Islands**.
 4. Use the native **Customize** button beside World Type. Choose your layout, size, and landmass count, then **Apply layout**.
@@ -56,9 +56,11 @@ The generator retains the active biome source and normal surface, cave, ore, fea
 
 **Updating an existing world:** the safeguard applies to newly generated terrain. Previously generated islands remain saved in their chunks; the update does not erase them. Layouts, randomized shape choices, and climate settings stay saved per world.
 
-Tested versions of **Terralith, Biolith, Biomes O' Plenty, Regions Unexplored, Streams Reflowing, Integrated Villages, Underwater Village**, and their dependencies coexist in the documented profiles. **Railways Untold** and **Natural Temperature** also pass the combined loading/noise checks, with their test-harness and climate-controller limitations documented separately.
+The current WIP audit tests **Terralith, Biolith, Biomes O' Plenty, TerraBlender, Streams Reflowing 2.17.3, Hybrid Aquatic, Spawn, Integrated Villages, Underwater Village, Railways Untold**, other generation mods, and their dependencies together in an ordinary dedicated server with structures enabled. See the [exact artifact manifest](docs/wip-worldgen-mods.json). Regions Unexplored and Natural Temperature were tested in the [earlier profiles](docs/COMPATIBILITY.md); they are absent from this WIP snapshot.
 
-This is **not a universal compatibility guarantee**. Structure starts are disabled by Minecraft's GameTest server, so those checks do not establish correct placement of every Integrated Village. Independent chunk generators and mods that bypass normal climate selection may need adapters. The [compatibility report](docs/COMPATIBILITY.md) separates completed checks from remaining gameplay tests.
+Spawn's independent island structures can otherwise create new land in the endless ocean. In Aki's worlds, these structures must fit within the planned land area. The `akis_islands:landmass_structures` tag supports other land-creating structures through data packs. Ocean buildings, ruins, and native icebergs remain eligible for normal generation.
+
+Every seed, structure variant, stream route, and client preview has not been tested. Independent chunk generators and mods that bypass normal climate selection may need adapters. The [current audit](docs/WIP-WORLDGEN-AUDIT.md) separates completed checks from remaining gameplay tests.
 
 ## Development
 

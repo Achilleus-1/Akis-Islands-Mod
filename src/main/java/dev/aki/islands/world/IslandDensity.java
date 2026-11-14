@@ -1,12 +1,28 @@
 package dev.aki.islands.world;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.util.StringRepresentable;
+import java.util.Locale;
 import net.minecraft.util.KeyDispatchDataCodec;
 import net.minecraft.world.level.levelgen.DensityFunction;
 
 /** Runtime wrapper; its owning generator serializes the original settings and options. */
-record IslandDensity(DensityFunction input, ContinentShape shape, Kind kind, int seaLevel, int oceanDepth)
+public record IslandDensity(DensityFunction input, ContinentShape shape, Kind kind, int seaLevel, int oceanDepth)
         implements DensityFunction {
-    enum Kind { CONTINENTS, FLOOR, TEMPERATURE }
+    public enum Kind implements StringRepresentable {
+        CONTINENTS, FLOOR, TEMPERATURE;
+        @Override public String getSerializedName() { return name().toLowerCase(Locale.ROOT); }
+    }
+    public static final MapCodec<IslandDensity> MAP_CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            DensityFunction.HOLDER_HELPER_CODEC.fieldOf("input").forGetter(IslandDensity::input),
+            ContinentShape.CODEC.fieldOf("shape").forGetter(IslandDensity::shape),
+            StringRepresentable.fromEnum(Kind::values).fieldOf("kind").forGetter(IslandDensity::kind),
+            Codec.INT.fieldOf("sea_level").forGetter(IslandDensity::seaLevel),
+            Codec.INT.fieldOf("ocean_depth").forGetter(IslandDensity::oceanDepth)
+    ).apply(instance, IslandDensity::new));
+    private static final KeyDispatchDataCodec<IslandDensity> CODEC = KeyDispatchDataCodec.of(MAP_CODEC);
     @Override
     public double compute(FunctionContext context) {
         double original = input.compute(context);
@@ -47,6 +63,6 @@ record IslandDensity(DensityFunction input, ContinentShape shape, Kind kind, int
     }
     @Override
     public KeyDispatchDataCodec<? extends DensityFunction> codec() {
-        throw new UnsupportedOperationException("Island density is serialized through its owning chunk generator");
+        return CODEC;
     }
 }

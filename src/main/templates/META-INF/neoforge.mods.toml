@@ -16,6 +16,9 @@ Configurable finite continents in an endless ocean, with a coastline preview bef
 Preserves the selected noise generator's biome source, surface rules, and structure pipeline.
 '''
 
+[[mixins]]
+config="akis_islands.mixins.json"
+
 [[dependencies.${mod_id}]]
 modId="neoforge"
 type="required"

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.1-alpha — 2026-11-13
+
+- Fixed Hybrid Aquatic 1.7.4 skipping its ocean trenches with the continent generator. Runtime noise settings now support startup terrain integrations through an isolated mutable reference.
+- Registered serializable continent, ocean-boundary, and latitude density functions so other generation mods can inspect the terrain graph.
+- Made Spawn's land-creating island structures respect the coastline plan. A data-pack tag identifies these structures, including cold, Dodo, sandy, tropical, and volcanic islands. Ordinary buildings and ocean ruins keep their placement rules.
+- Audited the installed WIP generation stack and current published changelogs, including Streams Reflowing 2.17.3. Added the exact 103-jar server-test manifest and compatibility report.
+- Added density-codec and structure-policy regressions, Hybrid Aquatic integration checks, and full-chunk checks for the Nether, End, Aether, and Otherside.
+
 ## 0.5.0-alpha — 2026-11-07
 
 - Expanded Normal middle from 50–90% to 10–90%, allowing a much narrower temperate center.

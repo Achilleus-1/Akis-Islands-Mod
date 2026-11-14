@@ -1,5 +1,7 @@
 # Compatibility test record
 
+**Current release: [0.5.1-alpha WIP worldgen audit](WIP-WORLDGEN-AUDIT.md), 2026-11-13.** It adds an ordinary-server check with structures enabled, Streams Reflowing 2.17.3, Hybrid Aquatic, Spawn, Railways Untold, and the wider installed generation stack. The record below describes earlier profiles and their historical limits.
+
 **2026-11-07 — 0.5.0-alpha, Minecraft 1.21.1, NeoForge 21.1.265, Java 21.** This is an alpha test record, not a universal compatibility guarantee.
 
 The 0.5.0 update rechecks unit tests and lightweight vanilla/modded climate checks. The full-chunk terrain checks below were last run for 0.4.1; this update adds an optional climate preset and widens its accepted middle-width range.

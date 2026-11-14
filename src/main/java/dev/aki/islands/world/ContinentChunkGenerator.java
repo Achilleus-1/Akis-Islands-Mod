@@ -31,6 +31,7 @@ public final class ContinentChunkGenerator extends NoiseBasedChunkGenerator {
     private final ContinentSettings islands;
     private final long layoutSeed;
     private final LatitudeClimateSettings latitudeClimate;
+    private final ContinentShape shape;
     public ContinentChunkGenerator(BiomeSource source, Holder<NoiseGeneratorSettings> baseSettings,
                                    ContinentSettings islands, long layoutSeed) {
         this(source, baseSettings, islands, layoutSeed, LatitudeClimateSettings.DISABLED);
@@ -38,11 +39,12 @@ public final class ContinentChunkGenerator extends NoiseBasedChunkGenerator {
 
     public ContinentChunkGenerator(BiomeSource source, Holder<NoiseGeneratorSettings> baseSettings,
                                    ContinentSettings islands, long layoutSeed, LatitudeClimateSettings latitudeClimate) {
-        super(source, Holder.direct(adapt(baseSettings.value(), islands, layoutSeed, latitudeClimate)));
+        super(source, new RuntimeNoiseSettings(adapt(baseSettings.value(), islands, layoutSeed, latitudeClimate)));
         this.baseSettings = baseSettings;
         this.islands = islands;
         this.layoutSeed = layoutSeed;
         this.latitudeClimate = latitudeClimate;
+        this.shape = new ContinentShape(islands, layoutSeed);
     }
     private static NoiseGeneratorSettings adapt(NoiseGeneratorSettings base, ContinentSettings options, long seed,
                                                  LatitudeClimateSettings latitude) {
@@ -95,4 +97,5 @@ public final class ContinentChunkGenerator extends NoiseBasedChunkGenerator {
     public ContinentSettings islands() { return islands; }
     public long layoutSeed() { return layoutSeed; }
     public LatitudeClimateSettings latitudeClimate() { return latitudeClimate; }
+    public boolean isPlannedLand(int x, int z) { return shape.landWeight(x, z) > 0; }
 }

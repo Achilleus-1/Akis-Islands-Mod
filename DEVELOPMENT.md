@@ -9,7 +9,7 @@ python tools/check_repository.py
 
 On Windows use `.\gradlew.bat` in place of `./gradlew`. The first build downloads pinned tooling and Minecraft development artifacts. Python is required only for repository/branding helpers and optional compatibility downloads, not to run the mod.
 
-The installable artifact is `build/libs/akis-islands-mod-1.21.1-0.5.0-alpha.jar`. GitHub releases attach only that runtime jar; GitHub supplies source archives automatically. No third-party compatibility jars, validation logs, or checksum sidecars are release assets.
+The installable artifact is `build/libs/akis-islands-mod-1.21.1-0.5.1-alpha.jar`. GitHub releases attach only that runtime jar; GitHub supplies source archives automatically. No third-party compatibility jars, validation logs, or checksum sidecars are release assets.
 
 ## Project layout
 
@@ -28,11 +28,11 @@ The installable artifact is `build/libs/akis-islands-mod-1.21.1-0.5.0-alpha.jar`
 
 ## Verification
 
-`build` runs the 20 unit tests. `runGameTestServer` runs three in-game tests covering generator serialization, old-save defaults, native terrain and humidity, climate direction, actual biome selection, known external-controller delegation, and preview-ocean boundary enforcement against independent terrain branches. Check the log for `All 3 required tests passed`; some loader failures can end a development run without a failing process exit code.
+`build` runs the 20 unit tests. `runGameTestServer` runs five in-game tests covering generator serialization, old-save defaults, native terrain and humidity, climate direction, actual biome selection, known external-controller delegation, preview-ocean boundary enforcement, runtime density codecs, and the tagged landmass-structure policy. Check the log for `All 5 required tests passed`; some loader failures can end a development run without a failing process exit code.
 
-`-PfullWorldgenTest` enables the optional full-chunk source and test-only World Type override, adding a fourth GameTest. Use isolated profiles and follow [the full guide](docs/GUIDE.md). The test classes, empty test template, and test-only flat preset never enter the distributable jar. After a full-generation run, close clients and use `./gradlew clean build` to restore ordinary development resources.
+`-PfullWorldgenTest` enables the optional full-chunk source and test-only World Type override, adding a sixth GameTest. Use isolated profiles and follow [the full guide](docs/GUIDE.md). The test classes, empty test template, and test-only flat preset never enter the distributable jar. After a full-generation run, close clients and use `./gradlew clean build` to restore ordinary development resources.
 
-The compatibility record distinguishes native biome/terrain checks from unverified structure placement, long routes, and UI behavior. GameTest world options disable normal structure starts. See [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md).
+GameTestServer world options disable normal structure starts. The [current WIP audit](docs/WIP-WORLDGEN-AUDIT.md) uses an ordinary dedicated server with `test runall`, retaining Railways Untold and structures. It records actual sample structure placements separately from unverified variants, long routes, and UI behavior. Earlier profiles remain in [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md).
 
 ## Packaging and branding
 

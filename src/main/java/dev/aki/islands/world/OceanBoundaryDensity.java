@@ -1,10 +1,19 @@
 package dev.aki.islands.world;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.KeyDispatchDataCodec;
 import net.minecraft.world.level.levelgen.DensityFunction;
 
 /** Enforces the preview's ocean boundary after every terrain branch has been evaluated. */
-record OceanBoundaryDensity(DensityFunction input, ContinentShape shape, int seaLevel) implements DensityFunction {
+public record OceanBoundaryDensity(DensityFunction input, ContinentShape shape, int seaLevel) implements DensityFunction {
+    public static final MapCodec<OceanBoundaryDensity> MAP_CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            DensityFunction.HOLDER_HELPER_CODEC.fieldOf("input").forGetter(OceanBoundaryDensity::input),
+            ContinentShape.CODEC.fieldOf("shape").forGetter(OceanBoundaryDensity::shape),
+            Codec.INT.fieldOf("sea_level").forGetter(OceanBoundaryDensity::seaLevel)
+    ).apply(instance, OceanBoundaryDensity::new));
+    private static final KeyDispatchDataCodec<OceanBoundaryDensity> CODEC = KeyDispatchDataCodec.of(MAP_CODEC);
     @Override
     public double compute(FunctionContext context) {
         double original = input.compute(context);
@@ -28,6 +37,6 @@ record OceanBoundaryDensity(DensityFunction input, ContinentShape shape, int sea
 
     @Override
     public KeyDispatchDataCodec<? extends DensityFunction> codec() {
-        throw new UnsupportedOperationException("Ocean boundary is serialized through its owning chunk generator");
+        return CODEC;
     }
 }

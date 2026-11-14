@@ -129,6 +129,8 @@ Server `generator-settings` is not wired to these continent controls. Use the wo
 
 ## Development checks
 
+The [current WIP audit](WIP-WORLDGEN-AUDIT.md) documents an ordinary-server path that keeps Railways Untold installed and enables structure starts. The historical GameTestServer profiles below remain useful for isolated terrain and climate checks.
+
 ```powershell
 $env:JAVA_HOME = 'C:\Program Files\Java\jdk-21'
 .\gradlew.bat build
@@ -161,3 +163,18 @@ Get-ChildItem run-compat\mods\*.jar |
 Close development clients before cleaning the build on Windows. After a full-generation test run, use `./gradlew clean build` to return the development resources to their normal state. The jar task always excludes the test classes, empty test structure, and test-only flat-preset override.
 
 Built from the [official NeoForge 1.21.1 ModDevGradle starter](https://github.com/NeoForgeMDKs/MDK-1.21.1-ModDevGradle). See also [NeoForge documentation](https://docs.neoforged.net/docs/1.21.1/) and the [official version repository](https://maven.neoforged.net/releases/net/neoforged/neoforge/).
+
+## Land-creating structures
+
+Some mods build entire islands in the structure stage, after the terrain noise has already produced ocean. Aki's default `akis_islands:landmass_structures` tag identifies Spawn's cold, Dodo, sandy, tropical, and volcanic islands. In Aki worlds, tagged structures need a starting point in the planned land area and a bounding footprint that fits the plan. Ocean ruins, villages, and ordinary buildings are not tagged.
+
+To adapt another land-creating structure, add its registered ID to `data/akis_islands/tags/worldgen/structure/landmass_structures.json` in a data pack:
+
+```json
+{
+  "replace": false,
+  "values": [{ "id": "example_mod:generated_island", "required": false }]
+}
+```
+
+The policy applies only to Aki's continent generator and new structure starts. Existing saved islands remain. A pack can replace or remove tag entries when it deliberately wants those independent islands outside the plan. Tagged structures that require ocean biomes may have few or no valid locations inside the planned land area.
